@@ -1,0 +1,8 @@
+res://scenes/main.tscn
+res://scripts/player.gd
+res://shaders/crt_shader.gdshader
+res://shaders/materials/crt_material.tres
+res://scenes/stage.tscn
+res://scenes/ze.tscn
+res://scenes/raj.tscn
+res://scenes/platform.tscn
