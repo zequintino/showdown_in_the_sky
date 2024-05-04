@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbs05x1caia2i"]
+
+[ext_resource type="Script" path="res://scripts/states/punch.gd" id="1_h5jru"]
+
+[node name="Punch" type="Node"]
+script = ExtResource("1_h5jru")

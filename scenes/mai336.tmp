@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ha4xyr8hib1"]
+
+[ext_resource type="Material" uid="uid://yyuk4rfugevr" path="res://shaders/crt_material.tres" id="1_h01jb"]
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_hdn7e"]
+[ext_resource type="PackedScene" uid="uid://b57qrjbbpo6rk" path="res://scenes/stage.tscn" id="2_pjb2x"]
+[ext_resource type="PackedScene" uid="uid://dedihlnr3kmvp" path="res://scenes/jp.tscn" id="3_vn347"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_hdn7e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+offset = Vector2(-1, 0)
+anchor_mode = 0
+zoom = Vector2(6, 6)
+
+[node name="Stage" parent="." instance=ExtResource("2_pjb2x")]
+position = Vector2(748, 420)
+
+[node name="Players" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Jp" parent="Players" instance=ExtResource("3_vn347")]
+position = Vector2(745, 460)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(627, 366)
+rotation = 3.14159
+scale = Vector2(13.918, -9.909)
+color = Color(0.964706, 1, 1, 1)
+blend_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+material = ExtResource("1_h01jb")
+offset_left = 533.0
+offset_top = 300.0
+offset_right = 748.0
+offset_bottom = 420.0
+metadata/_edit_lock_ = true
+
+[node name="Player1Marker" type="Marker2D" parent="."]
+position = Vector2(688, 415)
+
+[node name="Player2Marker" type="Marker2D" parent="."]
+position = Vector2(804, 415)
