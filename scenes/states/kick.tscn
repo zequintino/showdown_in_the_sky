@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvs76a8t03ks4"]
+
+[ext_resource type="Script" path="res://scripts/states/kick.gd" id="1_bt8ke"]
+
+[node name="Kick" type="Node"]
+script = ExtResource("1_bt8ke")

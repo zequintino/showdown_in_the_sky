@@ -1,0 +1,165 @@
+[gd_scene load_steps=10 format=3 uid="uid://b57qrjbbpo6rk"]
+
+[ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
+[ext_resource type="Texture2D" uid="uid://cyy4m2esnfcuf" path="res://assets/background.png" id="3_xq33k"]
+[ext_resource type="Texture2D" uid="uid://k2sb420ccspw" path="res://assets/timer.png" id="4_ikmgt"]
+[ext_resource type="Texture2D" uid="uid://bc1huyf4utfg8" path="res://assets/side_plat.png" id="4_q8mer"]
+
+[sub_resource type="Animation" id="Animation_2qixo"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbwll"]
+_data = {
+"default": SubResource("Animation_2qixo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
+size = Vector2(211, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyui"]
+size = Vector2(31, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da1qj"]
+radius = 2.0
+height = 31.0
+
+[node name="Stage" type="StaticBody2D"]
+texture_filter = 1
+collision_mask = 0
+
+[node name="Platform" parent="." instance=ExtResource("1_2shnp")]
+
+[node name="TimerSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, -54)
+texture = ExtResource("4_ikmgt")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "timer",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Timer/AnimationPlayer",
+"slice": "",
+"source": "res://aseprite/ui.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_pbwll")
+}
+
+[node name="Timer" type="Timer" parent="TimerSprite"]
+wait_time = 3.0
+one_shot = true
+
+[node name="MainFloorCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 53.5)
+shape = SubResource("RectangleShape2D_o01b5")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-106, -60)
+texture = ExtResource("3_xq33k")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-195, -48)
+texture = ExtResource("4_q8mer")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-89.5, 25)
+shape = SubResource("RectangleShape2D_hlyui")
+one_way_collision = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-15, -48)
+texture = ExtResource("4_q8mer")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(90.5, 25)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_da1qj")
+one_way_collision = true

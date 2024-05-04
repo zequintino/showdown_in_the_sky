@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerInput" load_steps=2 format=3 uid="uid://d2pyo1uqasl8l"]
+
+[ext_resource type="Script" path="res://scripts/abstract/player_input.gd" id="1_k4mab"]
+
+[resource]
+script = ExtResource("1_k4mab")
+player = 2
+move_left = "move_left_2"
+move_right = "move_right_2"
+jump = "jump_2"
+punch = "punch_2"
+kick = "kick_2"
+dash = "dash_2"
+layer = 2

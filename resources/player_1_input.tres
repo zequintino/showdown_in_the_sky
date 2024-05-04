@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlayerInput" load_steps=2 format=3 uid="uid://b503j71rer5v2"]
+
+[ext_resource type="Script" path="res://scripts/abstract/player_input.gd" id="1_hq5wu"]
+
+[resource]
+script = ExtResource("1_hq5wu")
+player = 1
+move_left = "move_left_1"
+move_right = "move_right_1"
+jump = "jump_1"
+punch = "punch_1"
+take_punch = "take_punch_1"
+layer = 2
+masks = {
+"player_1": 2,
+"player_2": 3,
+"player_3": 4,
+"player_4": 5,
+"stage": 1
+}

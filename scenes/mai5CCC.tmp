@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://4ha4xyr8hib1"]
+
+[ext_resource type="Material" uid="uid://yyuk4rfugevr" path="res://shaders/crt_material.tres" id="1_h01jb"]
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_hdn7e"]
+[ext_resource type="PackedScene" uid="uid://cxjxaw7n0rt8j" path="res://scenes/ze.tscn" id="1_lh7gt"]
+[ext_resource type="PackedScene" uid="uid://b57qrjbbpo6rk" path="res://arena.tscn" id="1_moo5l"]
+[ext_resource type="PackedScene" uid="uid://cpmpcbep6gw1r" path="res://scenes/raj.tscn" id="2_ic2v6"]
+[ext_resource type="PackedScene" uid="uid://dedihlnr3kmvp" path="res://scenes/jp.tscn" id="3_vn347"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_hdn7e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(6, 6)
+
+[node name="Arena" parent="." instance=ExtResource("1_moo5l")]
+position = Vector2(640, 360)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Raj" parent="Players" instance=ExtResource("2_ic2v6")]
+position = Vector2(638, 315)
+
+[node name="Jp" parent="Players" instance=ExtResource("3_vn347")]
+position = Vector2(638, 400)
+
+[node name="Ze" parent="Players" instance=ExtResource("1_lh7gt")]
+position = Vector2(701, 290)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(627, 366)
+rotation = 3.14159
+scale = Vector2(13.918, -9.909)
+color = Color(0.964706, 1, 1, 1)
+blend_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+material = ExtResource("1_h01jb")
+offset_left = 533.0
+offset_top = 300.0
+offset_right = 748.0
+offset_bottom = 420.0
+metadata/_edit_lock_ = true

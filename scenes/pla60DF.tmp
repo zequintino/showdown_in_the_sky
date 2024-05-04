@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://crge0pl4orm0h"]
+
+[ext_resource type="Script" path="res://scripts/platform_path.gd" id="1_emuys"]
+[ext_resource type="Script" path="res://scripts/score_area.gd" id="2_och30"]
+[ext_resource type="Texture2D" uid="uid://c5ddlrq5ps55c" path="res://assets/center plat.png" id="3_pka51"]
+
+[sub_resource type="Curve2D" id="Curve2D_2w6lj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_t4ynr"]
+offsets = PackedFloat32Array(0.0701107)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxmvs"]
+gradient = SubResource("Gradient_t4ynr")
+width = 75
+use_hdr = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
+size = Vector2(75, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e1oe4"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4hpef"]
+polygon = PackedVector2Array(-38, -4, -38, 0, 37, 0, 37, -4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjelc"]
+size = Vector2(75, 4)
+
+[node name="PlatformPath" type="Path2D"]
+texture_filter = 1
+curve = SubResource("Curve2D_2w6lj")
+script = ExtResource("1_emuys")
+speed = 10.0
+
+[node name="PlatformPathFollow" type="PathFollow2D" parent="."]
+rotation = -1.5708
+rotates = false
+
+[node name="ScoreArea" type="Area2D" parent="PlatformPathFollow"]
+position = Vector2(28, 1.22392e-06)
+rotation = 1.5708
+collision_mask = 6
+script = ExtResource("2_och30")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="PlatformPathFollow/ScoreArea"]
+z_index = 1
+offset_left = -38.0
+offset_top = 24.0
+offset_right = 38.0
+offset_bottom = 25.0
+max_value = 1000.0
+fill_mode = 6
+texture_progress = SubResource("GradientTexture1D_qxmvs")
+tint_progress = Color(0, 0.439216, 0.831373, 0.529412)
+
+[node name="ScoreAreaCollision" type="CollisionShape2D" parent="PlatformPathFollow/ScoreArea"]
+position = Vector2(-0.499901, 23.5)
+shape = SubResource("RectangleShape2D_b4hx1")
+
+[node name="PlatformSprite" type="Sprite2D" parent="PlatformPathFollow"]
+texture_filter = 1
+position = Vector2(88.0004, -106)
+rotation = 1.5708
+texture = ExtResource("3_pka51")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "center plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="PointLight" type="PointLight2D" parent="PlatformPathFollow"]
+position = Vector2(-8.5, -1.92733e-07)
+rotation = 1.5708
+scale = Vector2(18, 7)
+color = Color(0.156863, 0.376471, 0.407843, 0.0588235)
+energy = 0.0
+shadow_enabled = true
+shadow_filter_smooth = 64.0
+texture = SubResource("PlaceholderTexture2D_e1oe4")
+
+[node name="LightOccluder" type="LightOccluder2D" parent="PlatformPathFollow"]
+rotation = 1.5708
+occluder = SubResource("OccluderPolygon2D_4hpef")
+
+[node name="PlatformStaticBody" type="AnimatableBody2D" parent="PlatformPathFollow"]
+collision_mask = 2
+sync_to_physics = false
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="PlatformPathFollow/PlatformStaticBody"]
+position = Vector2(2, -0.499992)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_wjelc")
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="PlatformPathFollow"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="PlatformPathFollow/ScoreArea" to="PlatformPathFollow/ScoreArea" method="_on_body_entered"]
+[connection signal="body_exited" from="PlatformPathFollow/ScoreArea" to="PlatformPathFollow/ScoreArea" method="_on_body_exited"]

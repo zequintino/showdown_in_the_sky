@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerInput" load_steps=2 format=3 uid="uid://r5aolo70bf58"]
+
+[ext_resource type="Script" path="res://scripts/abstract/player_input.gd" id="1_ccq3q"]
+
+[resource]
+script = ExtResource("1_ccq3q")
+player = 4
+move_left = "move_left_4"
+move_right = "move_left_4"
+jump = "jump_4"
+punch = "punch_4"
+kick = "kick_4"
+dash = "dash_4"
+layer = 2
