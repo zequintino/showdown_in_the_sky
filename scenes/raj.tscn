@@ -254,7 +254,7 @@ scale = Vector2(0.3, 0.3)
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3w8il")
-animation = &"walk"
+animation = &"kick"
 metadata/_aseprite_wizard_config_ = {
 "layer": "raj",
 "o_ex_p": "",
