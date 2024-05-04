@@ -6,3 +6,7 @@ res://scenes/stage.tscn
 res://scenes/ze.tscn
 res://scenes/raj.tscn
 res://scenes/platform.tscn
+res://scripts/platform.gd
+res://scripts/score_area.gd
+res://scripts/autoloads/game_manager.gd
+res://scripts/stage.gd
