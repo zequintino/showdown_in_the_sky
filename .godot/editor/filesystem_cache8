@@ -1,5 +1,5 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1714850337
+::res://::1714859003
 icon.svg::CompressedTexture2D::1976240581603321151::1714850104::1714850173::1::::<><>::
 ::res://addons/::1714850104
 ::res://addons/AsepriteWizard/::1714850104
@@ -80,18 +80,18 @@ side_plat.png::CompressedTexture2D::2580934197031715513::1714850104::1714850173:
 timer.png::CompressedTexture2D::758722893429170668::1714850104::1714850173::1::::<><>::
 ze.png::CompressedTexture2D::3747066079589940149::1714850104::1714850173::1::::<><>::
 ::res://resources/::1714850104
-player_1_input.tres::Resource/PlayerInput::4545413306318742597::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
-player_2_input.tres::Resource/PlayerInput::9086810101789018025::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
-player_3_input.tres::Resource/PlayerInput::7665710493260622346::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
-player_4_input.tres::Resource/PlayerInput::1255167276454513865::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
-::res://scenes/::1714850241
+player_1_input.tres::Resource/Resource::4545413306318742597::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
+player_2_input.tres::Resource/Resource::9086810101789018025::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
+player_3_input.tres::Resource/Resource::7665710493260622346::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
+player_4_input.tres::Resource/Resource::1255167276454513865::1714850104::0::1::::<><>::res://scripts/abstract/player_input.gd
+::res://scenes/::1714852644
 jp.tscn::PackedScene::7446709394042614265::1714850104::0::1::::<><>::uid://btndvpkardk4l::::res://assets/ze.png
-main.tscn::PackedScene::2049980143733744580::1714850241::0::1::::<><>::uid://yyuk4rfugevr::::res://shaders/materials/crt_material.tres<>res://scripts/main.gd<>uid://b57qrjbbpo6rk::::res://scenes/stage.tscn
-platform.tscn::PackedScene::6860582607190201195::1714850241::0::1::::<><>::res://scripts/score_area.gd<>res://scripts/platform.gd<>uid://c5ddlrq5ps55c::::res://assets/center plat.png
-raj.tscn::PackedScene::5851360940910499677::1714850241::0::1::::<><>::res://scripts/player.gd<>uid://dpicq5f3m6hjq::::res://scenes/states.tscn<>uid://ctbxjnhqys5e1::::res://scenes/states/dash.tscn<>uid://om6c81aijxej::::res://scenes/states/fall.tscn<>uid://ciekrsjelmv3r::::res://scenes/states/hurt.tscn<>uid://djrcvgujx2x2c::::res://scenes/states/idle.tscn<>uid://c4vq2tgkl0ujl::::res://scenes/states/jump.tscn<>uid://bvs76a8t03ks4::::res://scenes/states/kick.tscn<>uid://bbs05x1caia2i::::res://scenes/states/punch.tscn<>uid://cg8e4qtc4vggx::::res://scenes/states/walk.tscn
-stage.tscn::PackedScene::4559148385665654920::1714850241::0::1::::<><>::uid://c40k1762ncvl8::::res://scenes/platform.tscn<>uid://cyy4m2esnfcuf::::res://assets/background.png<>uid://k2sb420ccspw::::res://assets/timer.png<>uid://bc1huyf4utfg8::::res://assets/side_plat.png
+main.tscn::PackedScene::2049980143733744580::1714852147::0::1::::<><>::uid://yyuk4rfugevr::::res://shaders/materials/crt_material.tres<>res://scripts/main.gd<>uid://b57qrjbbpo6rk::::res://scenes/stage.tscn
+platform.tscn::PackedScene::6860582607190201195::1714852147::0::1::::<><>::res://scripts/score_area.gd<>res://scripts/platform.gd<>uid://c5ddlrq5ps55c::::res://assets/center plat.png
+raj.tscn::PackedScene::5851360940910499677::1714852147::0::1::::<><>::res://scripts/player.gd<>uid://dpicq5f3m6hjq::::res://scenes/states.tscn<>uid://ctbxjnhqys5e1::::res://scenes/states/dash.tscn<>uid://om6c81aijxej::::res://scenes/states/fall.tscn<>uid://ciekrsjelmv3r::::res://scenes/states/hurt.tscn<>uid://djrcvgujx2x2c::::res://scenes/states/idle.tscn<>uid://c4vq2tgkl0ujl::::res://scenes/states/jump.tscn<>uid://bvs76a8t03ks4::::res://scenes/states/kick.tscn<>uid://bbs05x1caia2i::::res://scenes/states/punch.tscn<>uid://cg8e4qtc4vggx::::res://scenes/states/walk.tscn
+stage.tscn::PackedScene::4559148385665654920::1714852644::0::1::::<><>::uid://c40k1762ncvl8::::res://scenes/platform.tscn<>res://scripts/stage.gd<>uid://cyy4m2esnfcuf::::res://assets/background.png<>uid://k2sb420ccspw::::res://assets/timer.png<>uid://bc1huyf4utfg8::::res://assets/side_plat.png
 states.tscn::PackedScene::8228761319084259542::1714850104::0::1::::<><>::res://scripts/states.gd
-ze.tscn::PackedScene::6407161867253318255::1714850241::0::1::::<><>::uid://dpicq5f3m6hjq::::res://scenes/states.tscn<>res://scripts/player.gd<>uid://b503j71rer5v2::::res://resources/player_1_input.tres<>uid://djrcvgujx2x2c::::res://scenes/states/idle.tscn<>uid://cg8e4qtc4vggx::::res://scenes/states/walk.tscn<>uid://c4vq2tgkl0ujl::::res://scenes/states/jump.tscn<>uid://om6c81aijxej::::res://scenes/states/fall.tscn<>uid://ctbxjnhqys5e1::::res://scenes/states/dash.tscn<>uid://bbs05x1caia2i::::res://scenes/states/punch.tscn<>uid://bvs76a8t03ks4::::res://scenes/states/kick.tscn<>uid://ciekrsjelmv3r::::res://scenes/states/hurt.tscn<>uid://btndvpkardk4l::::res://assets/ze.png
+ze.tscn::PackedScene::6407161867253318255::1714852147::0::1::::<><>::uid://dpicq5f3m6hjq::::res://scenes/states.tscn<>res://scripts/player.gd<>uid://b503j71rer5v2::::res://resources/player_1_input.tres<>uid://djrcvgujx2x2c::::res://scenes/states/idle.tscn<>uid://cg8e4qtc4vggx::::res://scenes/states/walk.tscn<>uid://c4vq2tgkl0ujl::::res://scenes/states/jump.tscn<>uid://om6c81aijxej::::res://scenes/states/fall.tscn<>uid://ctbxjnhqys5e1::::res://scenes/states/dash.tscn<>uid://bbs05x1caia2i::::res://scenes/states/punch.tscn<>uid://bvs76a8t03ks4::::res://scenes/states/kick.tscn<>uid://ciekrsjelmv3r::::res://scenes/states/hurt.tscn<>uid://btndvpkardk4l::::res://assets/ze.png
 ::res://scenes/states/::1714850104
 dash.tscn::PackedScene::6109907031618613866::1714850104::0::1::::<><>::res://scripts/states/dash.gd
 fall.tscn::PackedScene::1009303915791281589::1714850104::0::1::::<><>::res://scripts/states/fall.gd
@@ -101,15 +101,18 @@ jump.tscn::PackedScene::6852690461726631365::1714850104::0::1::::<><>::res://scr
 kick.tscn::PackedScene::3899543554920775609::1714850104::0::1::::<><>::res://scripts/states/kick.gd
 punch.tscn::PackedScene::2495341073833672222::1714850104::0::1::::<><>::res://scripts/states/punch.gd
 walk.tscn::PackedScene::5262394420948020211::1714850104::0::1::::<><>::res://scripts/states/walk.gd
-::res://scripts/::1714850241
+::res://scripts/::1714852645
 main.gd::GDScript::-1::1714850104::0::1::::<>Node2D<>::
-platform.gd::GDScript::-1::1714850104::0::1::::<>Path2D<>::
+platform.gd::GDScript::-1::1714852146::0::1::::<>Path2D<>::
 player.gd::GDScript::-1::1714850241::0::1::::<>CharacterBody2D<>::
-score_area.gd::GDScript::-1::1714850104::0::1::::<>Area2D<>::
+score_area.gd::GDScript::-1::1714851621::0::1::::<>Area2D<>::
+stage.gd::GDScript::-1::1714852645::0::1::::<>StaticBody2D<>::
 states.gd::GDScript::-1::1714850104::0::1::::States<>Node<>::
 ::res://scripts/abstract/::1714850104
 player_input.gd::GDScript::-1::1714850104::0::1::::PlayerInput<>Resource<>::
 state.gd::GDScript::-1::1714850104::0::1::::State<>Node<>::
+::res://scripts/autoloads/::1714851409
+game_manager.gd::GDScript::-1::1714851409::0::1::::<>Node<>::
 ::res://scripts/states/::1714850104
 dash.gd::GDScript::-1::1714850104::0::1::::<>State<>::
 fall.gd::GDScript::-1::1714850104::0::1::::<>State<>::
@@ -119,7 +122,7 @@ jump.gd::GDScript::-1::1714850104::0::1::::<>State<>::
 kick.gd::GDScript::-1::1714850104::0::1::::<>State<>::
 punch.gd::GDScript::-1::1714850104::0::1::::<>State<>::
 walk.gd::GDScript::-1::1714850104::0::1::::<>State<>::
-::res://shaders/::1714850241
-crt_shader.gdshader::Shader::-1::1714850241::0::1::::<><>::
+::res://shaders/::1714852650
+crt_shader.gdshader::Shader::-1::1714852650::0::1::::<><>::
 ::res://shaders/materials/::1714850241
 crt_material.tres::ShaderMaterial::1735311060897564347::1714850241::0::1::::<><>::res://shaders/crt_shader.gdshader
