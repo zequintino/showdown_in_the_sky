@@ -38,20 +38,20 @@ func _physics_process(_delta):
 			point_light.energy -= 0.02
 
 
-func _on_body_entered(body):
-	print("body_entered:", body)
+func _on_body_entered(_body):
+	# print("body_entered:", body)
 	controlling_area = true
 	
 
-func _on_body_exited(body):
-	print("body_exited:", body)
-	controlling_area = false
-	countdown = false
-	timer_sprite.visible = false
-	timer.stop()
+# func _on_body_exited(body):
+# 	print("body_exited:", body)
+# 	controlling_area = false
+# 	countdown = false
+# 	timer_sprite.visible = false
+# 	timer.stop()
 
 
-func _on_timer_timeout():
-	print("win")
-	timer_sprite.visible = false
-	countdown = false
+# func _on_timer_timeout():
+# 	print("win")
+# 	timer_sprite.visible = false
+# 	countdown = false

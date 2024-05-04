@@ -1,9 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b57qrjbbpo6rk"]
+[gd_scene load_steps=11 format=3 uid="uid://b57qrjbbpo6rk"]
 
 [ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
+[ext_resource type="Script" path="res://scripts/stage.gd" id="1_hc3pc"]
 [ext_resource type="Texture2D" uid="uid://cyy4m2esnfcuf" path="res://assets/background.png" id="3_xq33k"]
 [ext_resource type="Texture2D" uid="uid://k2sb420ccspw" path="res://assets/timer.png" id="4_ikmgt"]
 [ext_resource type="Texture2D" uid="uid://bc1huyf4utfg8" path="res://assets/side_plat.png" id="4_q8mer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
+size = Vector2(211, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyui"]
+size = Vector2(31, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da1qj"]
+radius = 2.0
+height = 31.0
 
 [sub_resource type="Animation" id="Animation_2qixo"]
 length = 3.0
@@ -37,78 +48,14 @@ _data = {
 "default": SubResource("Animation_2qixo")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
-size = Vector2(211, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyui"]
-size = Vector2(31, 4)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da1qj"]
-radius = 2.0
-height = 31.0
-
 [node name="Stage" type="StaticBody2D"]
 texture_filter = 1
 collision_mask = 0
-
-[node name="Platform" parent="." instance=ExtResource("1_2shnp")]
-
-[node name="TimerSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-5, -54)
-texture = ExtResource("4_ikmgt")
-hframes = 2
-vframes = 2
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 0,
-"keep_anim_length": false,
-"layer": "timer",
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": true,
-"player": "Timer/AnimationPlayer",
-"slice": "",
-"source": "res://aseprite/ui.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_pbwll")
-}
-
-[node name="Timer" type="Timer" parent="TimerSprite"]
-wait_time = 3.0
-one_shot = true
+script = ExtResource("1_hc3pc")
 
 [node name="MainFloorCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 53.5)
 shape = SubResource("RectangleShape2D_o01b5")
-
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
-z_index = -1
-texture_filter = 1
-position = Vector2(-106, -60)
-texture = ExtResource("3_xq33k")
-centered = false
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": true,
-"player": "",
-"slice": "",
-"source": "res://aseprite/background.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true
-}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -163,3 +110,58 @@ position = Vector2(90.5, 25)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_da1qj")
 one_way_collision = true
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-106, -60)
+texture = ExtResource("3_xq33k")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="Platform" parent="." instance=ExtResource("1_2shnp")]
+
+[node name="TimerSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, -54)
+texture = ExtResource("4_ikmgt")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "timer",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Timer/AnimationPlayer",
+"slice": "",
+"source": "res://aseprite/ui.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_pbwll")
+}
+
+[node name="Timer" type="Timer" parent="TimerSprite"]
+wait_time = 3.0
+one_shot = true
