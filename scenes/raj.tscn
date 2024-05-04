@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cg8e4qtc4vggx" path="res://scenes/states/walk.tscn" id="10_rs67l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osyr8"]
-load_path = "res://.godot/imported/raj.png-e9c0f540e75efd0cd799518e935e7429.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1upjv"]
 atlas = SubResource("CompressedTexture2D_osyr8")
