@@ -242,6 +242,7 @@ script = ExtResource("1_ev6o0")
 [node name="Walk" parent="States" instance=ExtResource("10_rs67l")]
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 offset_left = -5.0

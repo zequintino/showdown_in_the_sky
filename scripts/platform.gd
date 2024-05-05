@@ -6,6 +6,7 @@ extends Path2D
 @onready var point_light = $PathFollow/PointLight
 @onready var timer = Node
 @onready var timer_sprite = Node2D
+@onready var canvas_layer = Node2D
 
 @export var speed: float = 1.0
 
@@ -16,7 +17,8 @@ var progress_min = 0.0
 
 
 func _ready():
-	timer_sprite = parent.get_node("TimerSprite")
+	canvas_layer = parent.get_node("CanvasLayer")
+	timer_sprite = canvas_layer.get_node("TimerSprite")
 	timer = timer_sprite.get_node("Timer")
 
 
@@ -27,7 +29,6 @@ func _physics_process(delta):
 
 
 func handle_movement(delta):
-	print(platform_path_follow.progress)
 	if controlling_platform:
 		if platform_path_follow.progress < progress_max:
 			platform_path_follow.progress += speed * delta
@@ -45,17 +46,17 @@ func calculate_score():
 		progress_bar.value += 1		
 	else:
 		progress_bar.value -= 1
-	handle_light()
+	handle_ufo_light()
 
 
 
-func handle_light():
+func handle_ufo_light():
 	if controlling_platform:
-		if point_light.energy < 9.0:
-			point_light.energy += 0.01
+		if point_light.energy < 16.0:
+			point_light.energy += 0.011
 	else:
 		if point_light.energy > 0.0:
-			point_light.energy -= 0.01
+			point_light.energy -= 0.011
 
 
 

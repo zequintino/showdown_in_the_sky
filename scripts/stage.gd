@@ -4,9 +4,9 @@ extends StaticBody2D
 @export var round_finished = false
 @export var counting_down = false
 
-@onready var timer_sprite = $TimerSprite
-@onready var animation_player = $TimerSprite/AnimationPlayer
-@onready var timer = $TimerSprite/Timer
+# @onready var timer_sprite = $TimerSprite
+# @onready var animation_player = $TimerSprite/AnimationPlayer
+# @onready var timer = $TimerSprite/Timer
 
 
 func _ready():
