@@ -12,9 +12,8 @@ size = Vector2(211, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyui"]
 size = Vector2(31, 4)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da1qj"]
-radius = 2.0
-height = 31.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnykr"]
+size = Vector2(31, 4)
 
 [sub_resource type="Animation" id="Animation_2qixo"]
 length = 3.0
@@ -107,9 +106,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 texture_filter = 1
 position = Vector2(90.5, 25)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_da1qj")
-one_way_collision = true
+shape = SubResource("RectangleShape2D_nnykr")
 
 [node name="BackgroundSprite" type="Sprite2D" parent="."]
 z_index = -1

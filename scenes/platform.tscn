@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://c40k1762ncvl8"]
 
-[ext_resource type="Script" path="res://scripts/score_area.gd" id="1_b8bdy"]
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_j2q25"]
 [ext_resource type="Texture2D" uid="uid://c5ddlrq5ps55c" path="res://assets/center plat.png" id="2_rsgig"]
 
@@ -23,6 +22,9 @@ use_hdr = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
 size = Vector2(75, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
+size = Vector2(75, 4)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e1oe4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4hpef"]
@@ -31,17 +33,18 @@ polygon = PackedVector2Array(-38, -4, -38, 0, 37, 0, 37, -4)
 [node name="Platform" type="Path2D"]
 curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
+speed = null
 
 [node name="PathFollow" type="PathFollow2D" parent="."]
 position = Vector2(0, 23)
 rotation = -1.5708
 rotates = false
+loop = false
 
 [node name="ScoreArea" type="Area2D" parent="PathFollow"]
 position = Vector2(23, 1.00536e-06)
 rotation = 1.5708
 collision_mask = 6
-script = ExtResource("1_b8bdy")
 
 [node name="Control" type="Control" parent="PathFollow/ScoreArea"]
 layout_mode = 3
@@ -55,15 +58,15 @@ offset_bottom = 24.0
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.487179
+anchor_left = 0.493333
 anchor_top = -23.0
-anchor_right = 0.487179
+anchor_right = 0.493333
 anchor_bottom = -23.0
 offset_left = -38.0
 offset_top = 24.0
 offset_right = 37.0
 offset_bottom = 25.0
-max_value = 1000.0
+max_value = 1380.0
 fill_mode = 6
 texture_progress = SubResource("GradientTexture1D_qxmvs")
 tint_progress = Color(0, 0.439216, 0.831373, 0.529412)
@@ -102,10 +105,10 @@ collision_mask = 2
 constant_linear_velocity = Vector2(0, -16)
 sync_to_physics = false
 
-[node name="PlatformCollision" type="CollisionPolygon2D" parent="PathFollow/PlatformStaticBody"]
+[node name="PlatformCollision" type="CollisionShape2D" parent="PathFollow/PlatformStaticBody"]
 texture_filter = 3
-position = Vector2(-1, 26)
-polygon = PackedVector2Array(-36.9999, -2, -37.9999, 0, -36.9999, 2, 36.0001, 2, 37.0001, 0, 36.0001, -2)
+position = Vector2(-1.49992, 26)
+shape = SubResource("RectangleShape2D_ldp7e")
 one_way_collision = true
 
 [node name="PointLight" type="PointLight2D" parent="PathFollow"]
@@ -123,5 +126,5 @@ position = Vector2(-5, -1)
 rotation = 1.5708
 occluder = SubResource("OccluderPolygon2D_4hpef")
 
-[connection signal="body_entered" from="PathFollow/ScoreArea" to="PathFollow/ScoreArea" method="_on_body_entered"]
-[connection signal="body_exited" from="PathFollow/ScoreArea" to="PathFollow/ScoreArea" method="_on_body_exited"]
+[connection signal="body_entered" from="PathFollow/ScoreArea" to="." method="_on_score_area_body_entered"]
+[connection signal="body_exited" from="PathFollow/ScoreArea" to="." method="_on_score_area_body_exited"]
