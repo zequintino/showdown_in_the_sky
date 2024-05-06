@@ -9,7 +9,7 @@ var prev_state = null
 ## Character movement speed. Default: 95.0
 @export_range(0.0, 100.0) var speed = 55.0
 ## Character jump speed. Default: -230.0
-@export_range(-500.0, 0.0) var jump_speed = -130.0
+@export_range(-500.0, 0.0) var jump_speed = -145.0
 ## Applied gravity. Default: 1000.0
 @export_range(0.0, 5000.0) var gravity_value = 700.0
 ## Bounce force after landing a punch. Default: 40.0

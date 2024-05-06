@@ -270,12 +270,12 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="StateLabel" type="Label" parent="."]
 visible = false
 texture_filter = 1
-texture_repeat = 1
 offset_left = -5.0
 offset_top = -17.0
 offset_right = 82.0
 offset_bottom = 6.0
 scale = Vector2(0.3, 0.3)
+visible_characters_behavior = 1
 
 [node name="PunchArea" type="Area2D" parent="."]
 collision_layer = 0
