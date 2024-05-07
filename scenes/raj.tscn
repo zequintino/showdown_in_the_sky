@@ -108,9 +108,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_olfoi")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
-"speed": 4.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,7 +121,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,9 +133,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djlje")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -146,7 +146,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -155,9 +155,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sl6oo")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -169,9 +169,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yu70e")
 }],
-"loop": true,
+"loop": false,
 "name": &"kick",
-"speed": 4.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,9 +183,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3jy5c")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
-"speed": 4.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -202,7 +202,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 4.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dlll"]
@@ -254,7 +254,7 @@ scale = Vector2(0.3, 0.3)
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_6rg3t")
-animation = &"kick"
+animation = &"walk"
 metadata/_aseprite_wizard_config_ = {
 "layer": "raj",
 "o_ex_p": "",

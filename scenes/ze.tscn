@@ -235,7 +235,7 @@ player_input = ExtResource("2_o7nxp")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rmjvk")
-animation = &"idle"
+animation = &"walk"
 metadata/_aseprite_wizard_config_ = {
 "layer": "ze",
 "o_ex_p": "",

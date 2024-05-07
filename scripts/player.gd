@@ -27,7 +27,6 @@ var prev_state = null
 ## Player input resource file
 @export var player_input: Resource = null
 
-
 @onready var states = $States
 @onready var state_label = $StateLabel
 @onready var punch_coll = $PunchArea/PunchCollision

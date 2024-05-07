@@ -3,7 +3,7 @@ extends Path2D
 @onready var parent = get_parent()
 @onready var platform_path_follow = $PathFollow
 @onready var progress_bar = $PathFollow/ScoreArea/Control/ProgressBar
-@onready var point_light = $PathFollow/PointLight
+@onready var ufo_light = $PathFollow/UfoLight
 @onready var timer = Node
 @onready var timer_sprite = Node2D
 @onready var canvas_layer = Node2D
@@ -14,6 +14,7 @@ var controlling_platform = false
 var countdown = false
 var progress_max = 23.0
 var progress_min = 0.0
+var controlling_players = []
 
 
 func _ready():
@@ -23,9 +24,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	handle_movement(delta)
-	calculate_score()
-
+	if controlling_players.size() < 2:
+		handle_movement(delta)
+		calculate_score()
 
 
 func handle_movement(delta):
@@ -49,26 +50,32 @@ func calculate_score():
 	handle_ufo_light()
 
 
-
 func handle_ufo_light():
 	if controlling_platform:
-		if point_light.energy < 16.0:
-			point_light.energy += 0.011
+		if ufo_light.energy < 16.0:
+			ufo_light.energy += 0.011
 	else:
-		if point_light.energy > 0.0:
-			point_light.energy -= 0.011
+		if ufo_light.energy > 0.0:
+			ufo_light.energy -= 0.011
 
 
-
-func _on_score_area_body_entered(_body):
-	controlling_platform = true
+func _on_score_area_body_entered(body):
+	controlling_players.append(body)
+	if controlling_players.size() < 2:
+		controlling_platform = true
+	else :
+		controlling_platform = false
 	# countdown = false
 	# timer_sprite.show()
 	# timer.stop()
 
 
-func _on_score_area_body_exited(_body):
-	controlling_platform = false
+func _on_score_area_body_exited(body):
+	controlling_players.erase(body)
+	if controlling_players.size() < 1:
+		controlling_platform = false
+	else :
+		controlling_platform = true
 	# countdown = false
 	# timer_sprite.hide()
 	# timer.stop()
