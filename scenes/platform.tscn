@@ -20,7 +20,7 @@ width = 80
 use_hdr = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
-size = Vector2(80, 1)
+size = Vector2(80, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
 size = Vector2(80, 4)
@@ -68,7 +68,7 @@ position = Vector2(23, 1.00536e-06)
 rotation = 1.5708
 collision_mask = 6
 
-[node name="Control" type="Control" parent="PathFollow/ScoreArea"]
+[node name="ProgressControl" type="Control" parent="PathFollow/ScoreArea"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -40.0
@@ -76,13 +76,13 @@ offset_top = 23.0
 offset_right = 40.0
 offset_bottom = 29.0
 
-[node name="ProgressBar" type="TextureProgressBar" parent="PathFollow/ScoreArea/Control"]
+[node name="ProgressBarA" type="TextureProgressBar" parent="PathFollow/ScoreArea/ProgressControl"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.416667
+anchor_top = 0.583333
 anchor_right = 1.0
-anchor_bottom = 0.416667
+anchor_bottom = 0.75
 offset_top = -0.5
 offset_bottom = 0.5
 grow_horizontal = 2
@@ -91,13 +91,34 @@ min_value = 1.0
 max_value = 1370.0
 value = 1.0
 rounded = true
-fill_mode = 6
+nine_patch_stretch = true
 texture_progress = SubResource("GradientTexture1D_qxmvs")
-tint_progress = Color(0, 0.439216, 0.831373, 0.529412)
+tint_progress = Color(0, 0.372549, 0.831373, 0.627451)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBarB" type="TextureProgressBar" parent="PathFollow/ScoreArea/ProgressControl"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.583333
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_top = -0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+min_value = 1.0
+max_value = 1370.0
+value = 1.0
+rounded = true
+fill_mode = 1
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_qxmvs")
+tint_progress = Color(0.752941, 0.0705882, 1, 0.627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAreaCollision" type="CollisionShape2D" parent="PathFollow/ScoreArea"]
-position = Vector2(8.28505e-05, 24.5)
+position = Vector2(8.28505e-05, -24)
 shape = SubResource("RectangleShape2D_b4hx1")
 
 [node name="PlatformStatic" type="AnimatableBody2D" parent="PathFollow"]
@@ -138,6 +159,7 @@ texture = SubResource("PlaceholderTexture2D_ygicg")
 position = Vector2(-5, -1)
 rotation = 1.5708
 occluder = SubResource("OccluderPolygon2D_4hpef")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="PathFollow/ScoreArea" to="." method="_on_score_area_body_entered"]
 [connection signal="body_exited" from="PathFollow/ScoreArea" to="." method="_on_score_area_body_exited"]

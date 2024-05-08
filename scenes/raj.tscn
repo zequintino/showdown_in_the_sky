@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://cpmpcbep6gw1r"]
+[gd_scene load_steps=39 format=3 uid="uid://cpmpcbep6gw1r"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ev6o0"]
+[ext_resource type="Resource" uid="uid://d2pyo1uqasl8l" path="res://resources/player_2_input.tres" id="2_m4y8l"]
 [ext_resource type="PackedScene" uid="uid://dpicq5f3m6hjq" path="res://scenes/states.tscn" id="2_ybcpu"]
 [ext_resource type="PackedScene" uid="uid://ctbxjnhqys5e1" path="res://scenes/states/dash.tscn" id="3_by2hy"]
 [ext_resource type="PackedScene" uid="uid://om6c81aijxej" path="res://scenes/states/fall.tscn" id="4_335fs"]
@@ -222,6 +223,7 @@ z_index = 1
 texture_filter = 1
 collision_layer = 0
 script = ExtResource("1_ev6o0")
+player_input = ExtResource("2_m4y8l")
 
 [node name="States" parent="." instance=ExtResource("2_ybcpu")]
 
