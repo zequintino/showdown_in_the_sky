@@ -96,7 +96,7 @@ func change_state(input_state):
 		current_state = input_state
 		prev_state.exit_state()
 		current_state.enter_state()
-		print(current_state)
+		# print(current_state)
 
 
 func set_horizontal_direction():

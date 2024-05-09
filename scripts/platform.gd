@@ -47,17 +47,20 @@ func handle_movement(delta):
 
 func calculate_score():
 	if team_a_scoring:
-		# round(progress_bar_a.value)	
-		if progress_bar_a.value == progress_bar_b.max_value - progress_bar_b.value:
-			progress_bar_b.value -= 1.0
 		if progress_bar_a.value < progress_bar_a.max_value:
+			if progress_bar_a.value == progress_bar_b.max_value - progress_bar_b.value:
+				progress_bar_b.value -= 1.0
 			progress_bar_a.value += 1.0
 	elif team_b_scoring:
-		# round(progress_bar_b.value)
-		if progress_bar_b.value == progress_bar_a.max_value - progress_bar_a.value:
-			progress_bar_a.value -= 1.0	
 		if progress_bar_b.value < progress_bar_b.max_value:
+			if progress_bar_b.value == progress_bar_a.max_value - progress_bar_a.value:
+				progress_bar_a.value -= 1.0	
 			progress_bar_b.value += 1.0	
+
+	# print("Team A: ", progress_bar_a.value)
+	# print("Team B: ", progress_bar_b.value)
+	# print("Team A difference: ", progress_bar_a.max_value - progress_bar_a.value)
+	# print("Team B difference: ", progress_bar_b.max_value - progress_bar_b.value)
 	
 	handle_ufo_light()
 
@@ -66,9 +69,18 @@ func handle_ufo_light():
 	if controlling_platform:
 		if ufo_light.energy < 16.0:
 			ufo_light.energy += 0.011
+			if team_a_scoring:
+				# ufo_light.color.r += 0.001
+				if progress_bar_b.value > 0.0:
+					ufo_light.color.r -= 0.00015
+			elif team_b_scoring:
+				ufo_light.color.r += 0.00015
+				# if progress_bar_a.value > 0.0:
+				# 	ufo_light.color.b -= 0.001
 	else:
 		if ufo_light.energy > 0.0:
 			ufo_light.energy -= 0.011
+			ufo_light.color.r -= 0.00015
 
 
 func _on_score_area_body_entered(body):
