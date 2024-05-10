@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b57qrjbbpo6rk"]
+[gd_scene load_steps=32 format=3 uid="uid://b57qrjbbpo6rk"]
 
 [ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_hc3pc"]
@@ -149,13 +149,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
-size = Vector2(256, 16)
+size = Vector2(88, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlyui"]
 size = Vector2(30, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnykr"]
-size = Vector2(30.5, 4)
+size = Vector2(30, 4)
 
 [sub_resource type="Animation" id="Animation_2qixo"]
 length = 3.0
@@ -189,19 +189,22 @@ _data = {
 "default": SubResource("Animation_2qixo")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlosq"]
+size = Vector2(80, 8)
+
 [node name="Stage" type="StaticBody2D"]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_hc3pc")
 
 [node name="Platform" parent="." instance=ExtResource("1_2shnp")]
-position = Vector2(128, 74)
+position = Vector2(128, 40)
 
 [node name="Sprites" type="Node2D" parent="."]
 
-[node name="StepLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
+[node name="StepBotLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(-113, 14)
+position = Vector2(-113, 16)
 sprite_frames = SubResource("SpriteFrames_0oaa1")
 autoplay = "default"
 frame_progress = 0.802745
@@ -220,9 +223,93 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
-[node name="StepRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+[node name="StepTopLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(113, 14)
+position = Vector2(-113, -12)
+sprite_frames = SubResource("SpriteFrames_0oaa1")
+autoplay = "default"
+frame_progress = 0.802745
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"slice_section": false
+}
+
+[node name="StepOutTopLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(-113, -40)
+sprite_frames = SubResource("SpriteFrames_0oaa1")
+autoplay = "default"
+frame_progress = 0.802745
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"slice_section": false
+}
+
+[node name="StepBotRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(113, 16)
+sprite_frames = SubResource("SpriteFrames_tqbgj")
+autoplay = "default"
+frame_progress = 0.703464
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"slice_section": false
+}
+
+[node name="StepTopRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(113, -12)
+sprite_frames = SubResource("SpriteFrames_tqbgj")
+autoplay = "default"
+frame_progress = 0.703464
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"layer": "side_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://aseprite/background.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"slice_section": false
+}
+
+[node name="StepOutTopRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(113, -40)
 sprite_frames = SubResource("SpriteFrames_tqbgj")
 autoplay = "default"
 frame_progress = 0.703464
@@ -263,20 +350,52 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
-[node name="MainFloorCollision" type="CollisionShape2D" parent="."]
-position = Vector2(128, 136)
+[node name="MainFloorLeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(44, 136)
 shape = SubResource("RectangleShape2D_o01b5")
 
-[node name="StepLeftCollision" type="CollisionShape2D" parent="."]
-position = Vector2(15, 100)
+[node name="MainFloorLeftCollision2" type="CollisionShape2D" parent="."]
+position = Vector2(212, 136)
+shape = SubResource("RectangleShape2D_o01b5")
+
+[node name="StepBotLeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(15, 102)
 shape = SubResource("RectangleShape2D_hlyui")
 one_way_collision = true
+one_way_collision_margin = 2.0
 
-[node name="StepRightCollision" type="CollisionShape2D" parent="."]
+[node name="StepTopLeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(15, 74)
+shape = SubResource("RectangleShape2D_hlyui")
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="StepOutTopLeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(15, 46)
+shape = SubResource("RectangleShape2D_hlyui")
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="StepBotRightCollision" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(240.75, 100)
+position = Vector2(241, 102)
 shape = SubResource("RectangleShape2D_nnykr")
 one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="StepTopRightCollision" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(241, 74)
+shape = SubResource("RectangleShape2D_nnykr")
+one_way_collision = true
+one_way_collision_margin = 2.0
+
+[node name="StepOutTopRightCollision" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(241, 46)
+shape = SubResource("RectangleShape2D_nnykr")
+one_way_collision = true
+one_way_collision_margin = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -312,3 +431,9 @@ libraries = {
 [node name="Timer" type="Timer" parent="CanvasLayer/TimerSprite"]
 wait_time = 3.0
 one_shot = true
+
+[node name="ExitCollision" type="CollisionShape2D" parent="."]
+position = Vector2(128, 4)
+shape = SubResource("RectangleShape2D_xlosq")
+one_way_collision = true
+one_way_collision_margin = 9.0

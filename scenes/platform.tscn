@@ -6,7 +6,7 @@
 [sub_resource type="Curve2D" id="Curve2D_fbq2g"]
 bake_interval = 1.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 86)
 }
 point_count = 3
 
@@ -20,7 +20,7 @@ width = 80
 use_hdr = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
-size = Vector2(80, 96)
+size = Vector2(80, 88)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
 size = Vector2(80, 4)
@@ -35,9 +35,10 @@ polygon = PackedVector2Array(-39, -3, -39, 0.999996, 41, 0.999996, 41, -3)
 [node name="Platform" type="Path2D"]
 curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
+speed = 4.0
 
 [node name="PathFollow" type="PathFollow2D" parent="."]
-position = Vector2(0, 23)
+position = Vector2(0, 86)
 rotation = -1.5708
 rotates = false
 loop = false
@@ -114,7 +115,7 @@ tint_progress = Color(0.752941, 0.0705882, 1, 0.627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAreaCollision" type="CollisionShape2D" parent="PathFollow/ScoreArea"]
-position = Vector2(8.28505e-05, -24)
+position = Vector2(8.28505e-05, -28)
 shape = SubResource("RectangleShape2D_b4hx1")
 
 [node name="PlatformStatic" type="AnimatableBody2D" parent="PathFollow"]
@@ -130,11 +131,12 @@ texture_filter = 3
 position = Vector2(8.17776e-05, 27)
 shape = SubResource("RectangleShape2D_ldp7e")
 one_way_collision = true
+one_way_collision_margin = 2.0
 
 [node name="UfoLight" type="PointLight2D" parent="PathFollow"]
-position = Vector2(20.6688, 0.119848)
+position = Vector2(25.9737, 0.119867)
 rotation = 1.5708
-scale = Vector2(1.11111, 2.5246)
+scale = Vector2(1.11111, 3.11403)
 color = Color(0.115077, 0.0161363, 0.1506, 0.392157)
 energy = 0.0
 shadow_enabled = true

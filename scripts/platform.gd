@@ -9,11 +9,11 @@ extends Path2D
 @onready var timer_sprite = Node2D
 @onready var canvas_layer = Node2D
 
-@export var speed: float = 1.0
+@export var speed: float = 2.0
 
 var controlling_platform = false
 var countdown = false
-var progress_max = 23.0
+var progress_max = 86.0 #default
 var progress_min = 0.0
 var controlling_players = []
 var team_a_scoring = false
@@ -69,18 +69,18 @@ func handle_ufo_light():
 	if controlling_platform:
 		if ufo_light.energy < 16.0:
 			ufo_light.energy += 0.011
-			if team_a_scoring:
-				# ufo_light.color.r += 0.001
-				if progress_bar_b.value > 0.0:
-					ufo_light.color.r -= 0.00015
-			elif team_b_scoring:
-				ufo_light.color.r += 0.00015
-				# if progress_bar_a.value > 0.0:
-				# 	ufo_light.color.b -= 0.001
+			# if team_a_scoring:
+			# 	# ufo_light.color.r += 0.001
+			# 	if progress_bar_b.value > 0.0:
+			# 		ufo_light.color.r -= 0.00015
+			# elif team_b_scoring:
+			# 	ufo_light.color.r += 0.00015
+			# 	# if progress_bar_a.value > 0.0:
+			# 	# 	ufo_light.color.b -= 0.001
 	else:
 		if ufo_light.energy > 0.0:
 			ufo_light.energy -= 0.011
-			ufo_light.color.r -= 0.00015
+			# ufo_light.color.r -= 0.00015
 
 
 func _on_score_area_body_entered(body):

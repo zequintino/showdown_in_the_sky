@@ -115,7 +115,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash",
-"speed": 14.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -176,7 +176,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"kick",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -235,7 +235,7 @@ player_input = ExtResource("2_o7nxp")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rmjvk")
-animation = &"walk"
+animation = &"dash"
 metadata/_aseprite_wizard_config_ = {
 "layer": "ze",
 "o_ex_p": "",
