@@ -35,7 +35,6 @@ polygon = PackedVector2Array(-39, -3, -39, 0.999996, 41, 0.999996, 41, -3)
 [node name="Platform" type="Path2D"]
 curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
-speed = 4.0
 
 [node name="PathFollow" type="PathFollow2D" parent="."]
 position = Vector2(0, 86)

@@ -9,7 +9,7 @@ extends Path2D
 @onready var timer_sprite = Node2D
 @onready var canvas_layer = Node2D
 
-@export var speed: float = 2.0
+@export var speed: float = 2.0 #default
 
 var controlling_platform = false
 var countdown = false

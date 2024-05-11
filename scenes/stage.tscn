@@ -401,11 +401,11 @@ one_way_collision_margin = 2.0
 
 [node name="TimerSprite" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
-position = Vector2(-5, -54)
+position = Vector2(37, 19)
+scale = Vector2(2, 2)
 texture = ExtResource("4_ikmgt")
 hframes = 2
 vframes = 2
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 0,
 "keep_anim_length": false,
