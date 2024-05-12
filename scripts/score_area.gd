@@ -10,7 +10,6 @@ extends Area2D
 
 var controlling_area = false
 var countdown = false
-#var score = 0
 
 
 func _physics_process(_delta):
@@ -38,9 +37,9 @@ func _physics_process(_delta):
 			point_light.energy -= 0.02
 
 
-func _on_body_entered(_body):
-	# print("body_entered:", body)
-	controlling_area = true
+#func _on_body_entered(_body):
+	## print("body_entered:", body)
+	#controlling_area = true
 	
 
 # func _on_body_exited(body):

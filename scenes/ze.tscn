@@ -115,7 +115,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash",
-"speed": 14.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -176,7 +176,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"kick",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,10 +232,26 @@ script = ExtResource("1_dm3mn")
 speed = 80.0
 player_input = ExtResource("2_o7nxp")
 
+[node name="StateLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 12.0
+grow_horizontal = 0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_alignment = 3
+vertical_alignment = 3
+uppercase = true
+
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_rmjvk")
-animation = &"idle"
+animation = &"dash"
 metadata/_aseprite_wizard_config_ = {
 "layer": "ze",
 "o_ex_p": "",
@@ -266,15 +282,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="Punch" parent="States" instance=ExtResource("8_55v5u")]
 
 [node name="Walk" parent="States" instance=ExtResource("5_2ceqa")]
-
-[node name="StateLabel" type="Label" parent="."]
-texture_filter = 1
-texture_repeat = 1
-offset_left = -5.0
-offset_top = -17.0
-offset_right = 82.0
-offset_bottom = 6.0
-scale = Vector2(0.3, 0.3)
 
 [node name="PunchArea" type="Area2D" parent="."]
 collision_layer = 0

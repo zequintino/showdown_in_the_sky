@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l186fqs30grp"
-path="res://.godot/imported/raj.png-20b58092b9ba71d9d3fc0a54d76b1b40.ctex"
+uid="uid://dyogoahpri788"
+path="res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/raj.png"
-dest_files=["res://.godot/imported/raj.png-20b58092b9ba71d9d3fc0a54d76b1b40.ctex"]
+source_file="res://scenes/background.png"
+dest_files=["res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.ctex"]
 
 [params]
 
