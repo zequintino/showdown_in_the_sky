@@ -9,8 +9,8 @@ extends Path2D
 @onready var progress_bar_b = $PathFollow/ScoreArea/ProgressControl/ProgressBarB
 @onready var ufo_light = $PathFollow/UfoLight
 @onready var timer = Node
-@onready var timer_sprite = Node2D
-@onready var canvas_layer = Node2D
+# @onready var timer_sprite = $Timer
+# @onready var canvas_layer = Node2D
 
 var controlling_platform = false
 var countdown = false
@@ -22,8 +22,8 @@ var team_b_scoring = false
 
 
 func _ready():
-	canvas_layer = parent.get_node("Canvas")
-	timer_sprite = canvas_layer.get_node("TimerSprite")
+	var timer_sprite = parent.get_node("TimerSprite")
+	# timer_sprite = get_node("TimerSprite")
 	timer = timer_sprite.get_node("Timer")
 
 

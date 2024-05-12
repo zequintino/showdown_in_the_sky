@@ -1,42 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://b57qrjbbpo6rk"]
+[gd_scene load_steps=46 format=3 uid="uid://b57qrjbbpo6rk"]
 
 [ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_hc3pc"]
-[ext_resource type="Texture2D" uid="uid://c60lpxb3ergh2" path="res://scenes/side_plat.png" id="3_smwrb"]
-[ext_resource type="Texture2D" uid="uid://dyogoahpri788" path="res://scenes/background.png" id="4_1wfbr"]
+[ext_resource type="Texture2D" uid="uid://ca5ijwofu7g3b" path="res://scenes/long_plat.png" id="3_jl8m7"]
+[ext_resource type="Texture2D" uid="uid://c60lpxb3ergh2" path="res://assets/side_plat.png" id="3_smwrb"]
+[ext_resource type="Texture2D" uid="uid://dyogoahpri788" path="res://assets/background.png" id="4_1wfbr"]
 [ext_resource type="Texture2D" uid="uid://k2sb420ccspw" path="res://assets/timer.png" id="4_ikmgt"]
-
-[sub_resource type="Animation" id="Animation_2qixo"]
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbwll"]
-_data = {
-"default": SubResource("Animation_2qixo")
-}
+[ext_resource type="Texture2D" uid="uid://eli4y4gysw1g" path="res://assets/sewers.png" id="4_qhvbn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w72r6"]
 atlas = ExtResource("3_smwrb")
@@ -180,6 +150,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t34b"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oibn3"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms8tt"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyvf0"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(0, 144, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gffy"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(256, 144, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g17n1"]
+atlas = ExtResource("4_qhvbn")
+region = Rect2(512, 144, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q01q7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t34b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oibn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms8tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyvf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gffy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g17n1")
+}],
+"loop": true,
+"name": &"draining",
+"speed": 10.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3j8v"]
 size = Vector2(80, 24)
 
@@ -202,52 +222,101 @@ b = Vector2(0, 144)
 a = Vector2(88, -2)
 b = Vector2(-3, -2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sl54"]
+size = Vector2(88, 4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6qtg"]
 size = Vector2(80, 16)
+
+[sub_resource type="Animation" id="Animation_2qixo"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbwll"]
+_data = {
+"default": SubResource("Animation_2qixo")
+}
 
 [node name="Stage" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_hc3pc")
 
+[node name="Platform" parent="." instance=ExtResource("1_2shnp")]
+position = Vector2(128, 40)
+
 [node name="Players" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="Player1Marker" type="Marker2D" parent="."]
+position = Vector2(56, 120)
 
-[node name="TimerSprite" type="Sprite2D" parent="Canvas"]
+[node name="Player2Marker" type="Marker2D" parent="."]
+position = Vector2(200, 119)
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="StepLongLeftSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(117, 3)
-scale = Vector2(2, 2)
-texture = ExtResource("4_ikmgt")
-hframes = 2
-vframes = 2
+position = Vector2(44, 41)
+texture = ExtResource("3_jl8m7")
 metadata/_aseprite_wizard_config_ = {
-"i_mode": 0,
+"i_mode": 1,
 "keep_anim_length": false,
-"layer": "timer",
+"layer": "long_plat",
 "o_ex_p": "",
 "o_folder": "",
 "o_name": "",
-"only_visible": true,
-"player": "Timer/AnimationPlayer",
+"only_visible": false,
+"player": "",
 "slice": "",
-"source": "res://aseprite/ui.aseprite"
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
 }
 metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"slice_section": false
+"layer_section": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Canvas/TimerSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_pbwll")
+[node name="StepLongRightSprite2" type="Sprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(212, 41)
+texture = ExtResource("3_jl8m7")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "long_plat",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
 }
-
-[node name="Timer" type="Timer" parent="Canvas/TimerSprite"]
-wait_time = 3.0
-one_shot = true
-
-[node name="Sprites" type="Node2D" parent="."]
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true
+}
 
 [node name="StepBotLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
@@ -313,6 +382,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="StepOutTopLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
+visible = false
 texture_filter = 1
 position = Vector2(-113, -44)
 sprite_frames = SubResource("SpriteFrames_0oaa1")
@@ -376,6 +446,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="StepOutTopRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+visible = false
 texture_filter = 1
 position = Vector2(113, -44)
 sprite_frames = SubResource("SpriteFrames_tqbgj")
@@ -394,6 +465,26 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "slice_section": false
+}
+
+[node name="SewersSprite" type="AnimatedSprite2D" parent="Sprites"]
+texture_filter = 1
+position = Vector2(128, 72)
+sprite_frames = SubResource("SpriteFrames_q01q7")
+animation = &"draining"
+autoplay = "draining"
+metadata/_aseprite_wizard_config_ = {
+"layer": "sewers",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
 }
 
 [node name="BackgroundSprite" type="Sprite2D" parent="Sprites"]
@@ -455,6 +546,7 @@ one_way_collision_margin = 2.0
 [node name="StepOutTopLeftCollision" type="CollisionShape2D" parent="StageBody"]
 position = Vector2(15, 42)
 shape = SubResource("RectangleShape2D_hlyui")
+disabled = true
 one_way_collision = true
 one_way_collision_margin = 2.0
 
@@ -476,6 +568,7 @@ one_way_collision_margin = 2.0
 texture_filter = 1
 position = Vector2(241, 42)
 shape = SubResource("RectangleShape2D_nnykr")
+disabled = true
 one_way_collision = true
 one_way_collision_margin = 2.0
 
@@ -494,14 +587,17 @@ shape = SubResource("SegmentShape2D_yjfx4")
 position = Vector2(171, 0)
 shape = SubResource("SegmentShape2D_yjfx4")
 
-[node name="Player1Marker" type="Marker2D" parent="."]
-position = Vector2(56, 120)
+[node name="StepLongLeftCollision" type="CollisionShape2D" parent="StageBody"]
+position = Vector2(44, 42)
+shape = SubResource("RectangleShape2D_1sl54")
+one_way_collision = true
+one_way_collision_margin = 2.0
 
-[node name="Player2Marker" type="Marker2D" parent="."]
-position = Vector2(200, 119)
-
-[node name="Platform" parent="." instance=ExtResource("1_2shnp")]
-position = Vector2(128, 40)
+[node name="StepLongRightCollision" type="CollisionShape2D" parent="StageBody"]
+position = Vector2(212, 42)
+shape = SubResource("RectangleShape2D_1sl54")
+one_way_collision = true
+one_way_collision_margin = 2.0
 
 [node name="PitArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -510,6 +606,39 @@ collision_mask = 6
 [node name="PitCollision" type="CollisionShape2D" parent="PitArea"]
 position = Vector2(128, 152)
 shape = SubResource("RectangleShape2D_r6qtg")
+
+[node name="TimerSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(117, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ikmgt")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layer": "timer",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Timer/AnimationPlayer",
+"slice": "",
+"source": "res://aseprite/ui.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"slice_section": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_pbwll")
+}
+
+[node name="Timer" type="Timer" parent="TimerSprite"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Player1RespawnTimer" type="Timer" parent="."]
 wait_time = 2.0

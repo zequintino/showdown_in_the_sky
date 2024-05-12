@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c40k1762ncvl8"]
 
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_j2q25"]
-[ext_resource type="Texture2D" uid="uid://b2t2mxyd4i06v" path="res://scenes/center_plat.png" id="2_spyyi"]
+[ext_resource type="Texture2D" uid="uid://b2t2mxyd4i06v" path="res://assets/center_plat.png" id="2_spyyi"]
 
 [sub_resource type="Curve2D" id="Curve2D_fbq2g"]
 bake_interval = 1.0
@@ -135,7 +135,7 @@ shape = SubResource("RectangleShape2D_ldp7e")
 position = Vector2(25.9737, 0.119867)
 rotation = 1.5708
 scale = Vector2(1.11111, 3.11403)
-color = Color(0.115077, 0.0161363, 0.1506, 0.392157)
+color = Color(0.129412, 0.0196078, 0.133333, 0.372549)
 energy = 0.0
 shadow_enabled = true
 shadow_filter_smooth = 64.0

@@ -3,6 +3,8 @@ shader_type canvas_item;
 // Based on crt-easymode
 // https://github.com/libretro/glsl-shaders/blob/master/crt/shaders/crt-easymode.glsl
 
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
 uniform float screen_base_size = 200.0;
 
 uniform float sharpness_h : hint_range(0.0, 1.0, 0.05); // 0.5
@@ -23,7 +25,6 @@ uniform float gamma_output : hint_range(0.1, 5.0, 0.1); // 1.8
 uniform float bright_boost : hint_range(1.0, 2.0, 0.01); // 1.2
 uniform float dilation : hint_range(0.0, 1.0, 1.0); // 1.0
 
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 vec4 fix(vec4 c)
 {
