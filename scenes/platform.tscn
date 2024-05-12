@@ -6,9 +6,9 @@
 [sub_resource type="Curve2D" id="Curve2D_fbq2g"]
 bake_interval = 1.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 86, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 86)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 28)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_m5hg1"]
 offsets = PackedFloat32Array(0.0701107)
@@ -20,7 +20,7 @@ width = 80
 use_hdr = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
-size = Vector2(80, 88)
+size = Vector2(80, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
 size = Vector2(80, 4)
@@ -37,9 +37,10 @@ curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
 
 [node name="PathFollow" type="PathFollow2D" parent="."]
-position = Vector2(0, 86)
+position = Vector2(0, 88)
 rotation = -1.5708
 rotates = false
+cubic_interp = false
 loop = false
 
 [node name="PlatformSprite" type="Sprite2D" parent="PathFollow"]
@@ -114,7 +115,7 @@ tint_progress = Color(0.752941, 0.0705882, 1, 0.627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAreaCollision" type="CollisionShape2D" parent="PathFollow/ScoreArea"]
-position = Vector2(8.28505e-05, -28)
+position = Vector2(8.28505e-05, -8.5)
 shape = SubResource("RectangleShape2D_b4hx1")
 
 [node name="PlatformStatic" type="AnimatableBody2D" parent="PathFollow"]
@@ -122,15 +123,13 @@ texture_filter = 1
 position = Vector2(23, 1.00536e-06)
 rotation = 1.5708
 collision_mask = 2
-constant_linear_velocity = Vector2(0, -16)
+constant_linear_velocity = Vector2(0, 1)
 sync_to_physics = false
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="PathFollow/PlatformStatic"]
 texture_filter = 3
 position = Vector2(8.17776e-05, 27)
 shape = SubResource("RectangleShape2D_ldp7e")
-one_way_collision = true
-one_way_collision_margin = 2.0
 
 [node name="UfoLight" type="PointLight2D" parent="PathFollow"]
 position = Vector2(25.9737, 0.119867)

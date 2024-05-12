@@ -1,5 +1,8 @@
 extends Path2D
 
+
+@export var speed: float = 4.0 #default 2.0
+
 @onready var parent = get_parent()
 @onready var platform_path_follow = $PathFollow
 @onready var progress_bar_a = $PathFollow/ScoreArea/ProgressControl/ProgressBarA
@@ -9,19 +12,17 @@ extends Path2D
 @onready var timer_sprite = Node2D
 @onready var canvas_layer = Node2D
 
-@export var speed: float = 2.0 #default
-
 var controlling_platform = false
 var countdown = false
-var progress_max = 86.0 #default
-var progress_min = 0.0
+var progress_max = 60.0 # default 60.0
+var progress_min = 0.0 # default 0.0
 var controlling_players = []
 var team_a_scoring = false
 var team_b_scoring = false
 
 
 func _ready():
-	canvas_layer = parent.get_node("CanvasLayer")
+	canvas_layer = parent.get_node("Canvas")
 	timer_sprite = canvas_layer.get_node("TimerSprite")
 	timer = timer_sprite.get_node("Timer")
 
@@ -55,12 +56,7 @@ func calculate_score():
 		if progress_bar_b.value < progress_bar_b.max_value:
 			if progress_bar_b.value == progress_bar_a.max_value - progress_bar_a.value:
 				progress_bar_a.value -= 1.0	
-			progress_bar_b.value += 1.0	
-
-	# print("Team A: ", progress_bar_a.value)
-	# print("Team B: ", progress_bar_b.value)
-	# print("Team A difference: ", progress_bar_a.max_value - progress_bar_a.value)
-	# print("Team B difference: ", progress_bar_b.max_value - progress_bar_b.value)
+			progress_bar_b.value += 1.0		
 	
 	handle_ufo_light()
 
@@ -69,23 +65,13 @@ func handle_ufo_light():
 	if controlling_platform:
 		if ufo_light.energy < 16.0:
 			ufo_light.energy += 0.011
-			# if team_a_scoring:
-			# 	# ufo_light.color.r += 0.001
-			# 	if progress_bar_b.value > 0.0:
-			# 		ufo_light.color.r -= 0.00015
-			# elif team_b_scoring:
-			# 	ufo_light.color.r += 0.00015
-			# 	# if progress_bar_a.value > 0.0:
-			# 	# 	ufo_light.color.b -= 0.001
 	else:
 		if ufo_light.energy > 0.0:
 			ufo_light.energy -= 0.011
-			# ufo_light.color.r -= 0.00015
 
 
 func _on_score_area_body_entered(body):
 	controlling_players.append(body)
-	
 	if controlling_players.size() < 2:
 		controlling_platform = true
 		if body.player_input.player == 1:
@@ -96,7 +82,6 @@ func _on_score_area_body_entered(body):
 		team_a_scoring = false
 		team_b_scoring = false
 		controlling_platform = false
-	
 	# countdown = false
 	# timer_sprite.show()
 	# timer.stop()
@@ -115,7 +100,6 @@ func _on_score_area_body_exited(body):
 				team_a_scoring = true
 			elif player.player_input.player == 2:
 				team_b_scoring = true
-	
 	# countdown = false
 	# timer_sprite.hide()
 	# timer.stop()

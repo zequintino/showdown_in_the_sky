@@ -1,17 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://4ha4xyr8hib1"]
+[gd_scene load_steps=3 format=3 uid="uid://4ha4xyr8hib1"]
 
 [ext_resource type="Material" uid="uid://yyuk4rfugevr" path="res://shaders/materials/crt_material.tres" id="1_h01jb"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_hdn7e"]
-[ext_resource type="PackedScene" uid="uid://b57qrjbbpo6rk" path="res://scenes/stage.tscn" id="2_pjb2x"]
 
 [node name="main" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_hdn7e")
-
-[node name="Stage" parent="." instance=ExtResource("2_pjb2x")]
-
-[node name="Players" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -20,12 +14,6 @@ rotation = 3.14159
 scale = Vector2(13.918, -9.909)
 color = Color(0.964706, 1, 1, 1)
 blend_mode = 2
-
-[node name="Player1Marker" type="Marker2D" parent="."]
-position = Vector2(56, 96)
-
-[node name="Player2Marker" type="Marker2D" parent="."]
-position = Vector2(200, 96)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
