@@ -23,7 +23,6 @@ var team_b_scoring = false
 
 func _ready():
 	var timer_sprite = parent.get_node("TimerSprite")
-	# timer_sprite = get_node("TimerSprite")
 	timer = timer_sprite.get_node("Timer")
 
 
@@ -52,22 +51,31 @@ func calculate_score():
 			if progress_bar_a.value == progress_bar_b.max_value - progress_bar_b.value:
 				progress_bar_b.value -= 1.0
 			progress_bar_a.value += 1.0
+		else:
+			for player in controlling_players:
+				if platform_path_follow.progress == progress_max:
+					player.disintegrating = true
+	
 	elif team_b_scoring:
 		if progress_bar_b.value < progress_bar_b.max_value:
 			if progress_bar_b.value == progress_bar_a.max_value - progress_bar_a.value:
 				progress_bar_a.value -= 1.0	
 			progress_bar_b.value += 1.0		
-	
+		else:
+			for player in controlling_players:
+				if platform_path_follow.progress == progress_max:
+					player.disintegrating = true
+		
 	handle_ufo_light()
 
 
 func handle_ufo_light():
 	if controlling_platform:
 		if ufo_light.energy < 16.0:
-			ufo_light.energy += 0.011
+			ufo_light.energy += 0.016
 	else:
 		if ufo_light.energy > 0.0:
-			ufo_light.energy -= 0.011
+			ufo_light.energy -= 0.016
 
 
 func _on_score_area_body_entered(body):

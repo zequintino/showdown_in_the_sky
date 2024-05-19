@@ -3,7 +3,7 @@ extends State
 
 func update(delta):
 	player.gravity(delta)
-	player.handle_move_input()
+	player.handle_move_input(delta)
 	
 	if player.is_on_floor() and !player.direction_x:
 		return states.IDLE
@@ -20,8 +20,10 @@ func update(delta):
 		return states.KICK
 	elif Input.is_action_just_pressed(player.player_input.dash):
 		return states.DASH
-	
-	return null
+	elif player.is_hurt:
+		return states.HURT
+	else:
+		return null	
 
 
 func enter_state():
@@ -31,3 +33,7 @@ func enter_state():
 		player.velocity.y = player.jump_speed + player.double_jump_speed
 	else:
 		player.velocity.y = player.jump_speed
+
+
+func change_state():
+	pass

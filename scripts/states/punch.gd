@@ -3,10 +3,18 @@ extends State
 
 func update(delta):
 	player.gravity(delta)
-	player.handle_move_input()
+	player.handle_move_input(delta)
 	
+	# buffer punch
+	if player.punching and Input.is_action_just_pressed(player.player_input.punch):
+		player.buffer_timer.stop()
+		player.buffer_timer.start()
+
 	if not player.punching:
-		if player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
+		if not player.buffer_timer.is_stopped():
+			player.buffer_timer.stop()
+			return states.PUNCH
+		elif player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 			return states.IDLE
 		elif player.direction_x != Vector2.ZERO.x:
 			return states.WALK

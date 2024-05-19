@@ -3,7 +3,7 @@ extends State
 
 func update(delta):
 	player.gravity(delta)
-	player.handle_move_input()
+	player.handle_move_input(delta)
 	
 	if player.direction_x != Vector2.ZERO.x:
 		return states.WALK
@@ -19,6 +19,8 @@ func update(delta):
 		return states.DASH
 	elif player.is_hurt:
 		return states.HURT
+	elif player.disintegrating:
+		return states.DISINTEGRATE
 	else:
 		return null
 

@@ -1,12 +1,12 @@
 extends State
 
 
-@export var curve : Curve
+# @export var curve : Curve
 
 
 func update(delta):
 	if not player.dashing:
-		player.handle_move_input()
+		player.handle_move_input(delta)
 		player.gravity(delta)
 		
 		if player.is_on_floor():

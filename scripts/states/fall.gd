@@ -3,7 +3,7 @@ extends State
 
 func update(delta):
 	player.gravity(delta)
-	player.handle_move_input()
+	player.handle_move_input(delta)
 	
 	if player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 		return states.IDLE
@@ -18,6 +18,8 @@ func update(delta):
 			return states.KICK
 	elif Input.is_action_just_pressed(player.player_input.dash):
 		return states.DASH
+	elif player.is_hurt:
+		return states.HURT
 	
 	return null
 

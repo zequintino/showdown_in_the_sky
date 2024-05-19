@@ -10,6 +10,9 @@ extends Node
 @onready var PUNCH = $Punch
 @onready var KICK = $Kick
 @onready var HURT = $Hurt
+@onready var DISINTEGRATE = $Disintegrate
+# input buffer handler
+# @onready var buffer_timer = $BufferTimer
 
 
 func _ready():
