@@ -20,7 +20,7 @@ width = 80
 use_hdr = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
-size = Vector2(80, 57)
+size = Vector2(78, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
 size = Vector2(80, 4)
@@ -115,7 +115,7 @@ tint_progress = Color(0.752941, 0.0705882, 1, 0.627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAreaCollision" type="CollisionShape2D" parent="PathFollow/ScoreArea"]
-position = Vector2(8.28505e-05, -8.5)
+position = Vector2(8.28505e-05, -9)
 shape = SubResource("RectangleShape2D_b4hx1")
 
 [node name="PlatformStatic" type="AnimatableBody2D" parent="PathFollow"]

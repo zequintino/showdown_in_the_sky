@@ -33,7 +33,3 @@ func enter_state():
 		player.velocity.y = player.jump_speed + player.double_jump_speed
 	else:
 		player.velocity.y = player.jump_speed
-
-
-func change_state():
-	pass

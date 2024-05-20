@@ -2,18 +2,16 @@ extends State
 
 
 func update(delta):
-	# buffer punch
-	if player.kicking and Input.is_action_just_pressed(player.player_input.kick):
-		player.buffer_timer.stop()
-		player.buffer_timer.start()
-	elif not player.kicking:
+	if not player.kicking:
 		player.gravity(delta)
-		# player.handle_move_input(delta)
-		
-		if not player.buffer_timer.is_stopped():
-			player.buffer_timer.stop()
-			return states.KICK
-		if player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
+		if not player.buffer_input_timer.is_stopped():
+			player.buffer_input_timer.stop()
+			match player.queued_input:
+				"jump": return states.JUMP
+				"dash": return states.DASH
+				"punch": return states.PUNCH
+				"kick": return states.KICK
+		elif player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 			return states.IDLE
 		elif player.velocity.y > Vector2.ZERO.y:
 			return states.FALL
@@ -29,9 +27,15 @@ func enter_state():
 	player.velocity.y = Vector2.ZERO.y
 	player.kick_coll.disabled = false
 	
-	if player.anim_sprite.flip_h:
+	if player.anim_sprite.flip_h: # facing right
+		kick("right")
+	else:
+		kick("left")
+		
+
+
+func kick(direction):
+	if direction == "right":
 		player.velocity.x = move_toward(player.kick_speed, Vector2.RIGHT.x, player.decel)
 	else:
 		player.velocity.x = move_toward(-player.kick_speed, Vector2.LEFT.x, player.decel)
-
-	# player.get_tree().create_tween().tween_property(player, "velocity:x", 0.5, Tween.EASE_IN_OUT)
