@@ -42,6 +42,7 @@ extends CharacterBody2D
 @onready var body_coll = $BodyCollision
 @onready var anim_sprite = $AnimSprite
 @onready var buffer_input_timer = $BufferInputTimer
+@onready var dash_timer = $DashTimer
 
 var current_state = null
 var prev_state = null
@@ -70,20 +71,21 @@ func _ready():
 	current_state = states.IDLE
 
 
+func _unhandled_input(event):
+	change_state(current_state.handle_input(event))
+
+
 func _physics_process(delta):
-	if not kicking or punching:
+	if not kicking or punching or dashing:
 		set_horizontal_direction()
-	
 	queue_input()
-	
 	change_state(current_state.update(delta))
 	state_label.text = str(current_state.get_name())
-
 	move_and_slide()
 
 
 func gravity(delta):
-	if not is_on_floor():
+	if not is_on_floor() and not dashing:
 		velocity.y += gravity_value * delta
 
 
@@ -209,6 +211,7 @@ func _on_anim_sprite_animation_finished():
 			velocity.x = Vector2.ZERO.x
 	elif anim_sprite.animation == "dash":
 		dashing = false
+		dash_timer.start()
 		if not is_on_floor():
 			velocity.x = Vector2.ZERO.x
 	elif anim_sprite.animation == "hurt":

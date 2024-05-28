@@ -66,10 +66,10 @@ size = Vector2(88, 8)
 size = Vector2(88, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2txv"]
-size = Vector2(8, 152)
+size = Vector2(8, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk8i"]
-size = Vector2(8, 152)
+size = Vector2(8, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
 size = Vector2(88, 14)
@@ -476,17 +476,19 @@ one_way_collision_margin = 2.0
 [node name="CeilLeftCollision" type="CollisionShape2D" parent="StageBody"]
 position = Vector2(44, -4)
 shape = SubResource("RectangleShape2D_aqtyy")
+disabled = true
 
 [node name="CeilRightCollision" type="CollisionShape2D" parent="StageBody"]
 position = Vector2(212, -4)
 shape = SubResource("RectangleShape2D_hnv5k")
+disabled = true
 
 [node name="WallLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(-1, 68)
+position = Vector2(-1, 36)
 shape = SubResource("RectangleShape2D_x2txv")
 
 [node name="WallRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(255, 68)
+position = Vector2(255, 36)
 shape = SubResource("RectangleShape2D_suk8i")
 
 [node name="MainFloorLeftCollision" type="CollisionShape2D" parent="StageBody"]

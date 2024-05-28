@@ -15,7 +15,7 @@ func update(delta):
 		return states.PUNCH
 	elif Input.is_action_just_pressed(player.player_input.kick):
 		return states.KICK
-	elif Input.is_action_just_pressed(player.player_input.dash):
+	elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
 		return states.DASH
 	elif player.is_hurt:
 		return states.HURT
