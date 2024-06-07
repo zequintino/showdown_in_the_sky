@@ -44,6 +44,7 @@ extends CharacterBody2D
 @onready var buffer_input_timer = $BufferInputTimer
 @onready var dash_timer = $DashTimer
 @onready var kick_timer = $KickTimer
+@onready var dash_cooldown = null
 
 var current_state = null
 var prev_state = null
@@ -71,9 +72,21 @@ func _ready():
 	prev_state = null
 	current_state = states.IDLE
 
+	var players_node = get_parent()
+	var stage_node = players_node.get_parent()
+	dash_cooldown = stage_node.get_node("DashTextureProgress")
+	dash_cooldown.value = dash_cooldown.max_value
+
 
 func _unhandled_input(event):
 	change_state(current_state.handle_input(event))
+
+
+func _process(_delta):
+	if dash_timer.time_left == dash_timer.wait_time:
+		dash_cooldown.value = 0
+	else:
+		dash_cooldown.value += 0.5
 
 
 func _physics_process(delta):

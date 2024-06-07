@@ -8,6 +8,7 @@ extends State
 var curve_time = 0.0
 
 
+
 func update(delta):
 	if player.dashing:
 		dash()

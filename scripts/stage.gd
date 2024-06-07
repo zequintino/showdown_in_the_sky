@@ -25,7 +25,6 @@ func start_countdown():
 
 func _on_pit_area_body_entered(body):
 	if body.player_input.player == 1:
-		print(player_1_respawn_timer)
 		player_1_respawn_timer.start()
 	if body.player_input.player == 2:
 		player_2_respawn_timer.start()
