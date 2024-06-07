@@ -15,13 +15,14 @@ func handle_input(event):
 			if Input.is_action_just_pressed(player.player_input.punch):
 				curve_time = 0.0
 				return states.PUNCH
-			elif Input.is_action_just_pressed(player.player_input.kick):
+			elif Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
 				curve_time = 0.0
 				return states.KICK
 			elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
 				jumping = false
 				curve_time = 0.0
 				return states.DASH
+
 
 func update(delta):
 	player.handle_move_input(delta)
@@ -55,8 +56,8 @@ func update(delta):
 
 
 func enter_state():
-	jumping = true
 	player.anim_sprite.play("jump")
+	jumping = true
 
 
 func jump():
@@ -66,6 +67,7 @@ func jump():
 	player.velocity.y = curve.sample(curve_time) * (curve_factor)
 	print(player.velocity.y)
 	print(player.position.y)
+	
 	# Double jump
 	# if not player.double_jumping:
 	# 	player.velocity.y = curve.sample(curve_time) * (curve_factor)

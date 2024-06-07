@@ -43,6 +43,7 @@ extends CharacterBody2D
 @onready var anim_sprite = $AnimSprite
 @onready var buffer_input_timer = $BufferInputTimer
 @onready var dash_timer = $DashTimer
+@onready var kick_timer = $KickTimer
 
 var current_state = null
 var prev_state = null
@@ -76,8 +77,9 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta):
-	if not kicking or punching or dashing:
+	if not dashing or punching or kicking:
 		set_horizontal_direction()
+	
 	queue_input()
 	change_state(current_state.update(delta))
 	state_label.text = str(current_state.get_name())
@@ -183,6 +185,8 @@ func take_kick(direction):
 
 func _on_punch_area_body_entered(body):
 	if body.has_method("take_punch"):
+		punching = false
+		
 		if anim_sprite.flip_h:
 			punch_self_knockback("right")
 			body.take_punch("right")
@@ -192,8 +196,9 @@ func _on_punch_area_body_entered(body):
 
 
 func _on_kick_area_body_entered(body):
-	velocity.x = Vector2.ZERO.x
 	if body.has_method("take_kick"):
+		kicking = false
+		
 		if anim_sprite.flip_h:
 			body.take_kick("right")
 		else:
@@ -201,19 +206,12 @@ func _on_kick_area_body_entered(body):
 
 
 func _on_anim_sprite_animation_finished():
-	if anim_sprite.animation == "punch":
-		punch_coll.disabled = true
+	if anim_sprite.animation == "punch" and punching:
 		punching = false
-	elif anim_sprite.animation == "kick":
-		kick_coll.disabled = true
+	elif anim_sprite.animation == "kick" and kicking:
 		kicking = false
-		if not is_on_floor():
-			velocity.x = Vector2.ZERO.x
 	elif anim_sprite.animation == "dash":
 		dashing = false
-		dash_timer.start()
-		if not is_on_floor():
-			velocity.x = Vector2.ZERO.x
 	elif anim_sprite.animation == "hurt":
 		is_hurt = false
 	elif anim_sprite.animation == "disintegrate":

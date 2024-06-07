@@ -36,11 +36,15 @@ func handle_movement(delta):
 	if controlling_platform:
 		if platform_path_follow.progress < progress_max:
 			platform_path_follow.progress += speed * delta
+			clamp(platform_path_follow.progress, progress_min, progress_max)
+			
 			if platform_path_follow.progress > progress_max:
 				round(platform_path_follow.progress)
 	else:
 		if platform_path_follow.progress > progress_min:
 			platform_path_follow.progress -= speed * delta
+			clamp(platform_path_follow.progress, progress_min, progress_max)
+			
 			if platform_path_follow.progress < progress_min:
 				round(platform_path_follow.progress)
 

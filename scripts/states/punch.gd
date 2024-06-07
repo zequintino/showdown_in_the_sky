@@ -14,11 +14,12 @@ func update(delta):
 	player.handle_move_input(delta)
 
 	if not player.punching:
+		player.punch_coll.disabled = true
+		
 		if not player.buffer_input_timer.is_stopped():
 			player.buffer_input_timer.stop()
 			match player.queued_input:
-				# Double jump
-				"jump": 
+				"jump":
 					if player.is_on_floor():
 						return states.JUMP
 				"dash": 

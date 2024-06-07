@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cxjxaw7n0rt8j"]
+[gd_scene load_steps=44 format=3 uid="uid://cxjxaw7n0rt8j"]
 
 [ext_resource type="PackedScene" uid="uid://dpicq5f3m6hjq" path="res://scenes/states.tscn" id="1_c3vuo"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dm3mn"]
@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://ciekrsjelmv3r" path="res://scenes/states/hurt.tscn" id="11_6u7s6"]
 [ext_resource type="Texture2D" uid="uid://btndvpkardk4l" path="res://assets/ze.png" id="12_k14ad"]
 [ext_resource type="PackedScene" uid="uid://byk7f0msqkt6g" path="res://scenes/states/disintegrate.tscn" id="13_bbhvm"]
+
+[sub_resource type="Curve" id="Curve_1x5sn"]
+_data = [Vector2(0.0666667, 0.2), 0.0, 0.0, 0, 0, Vector2(0.266667, 0), 0.0, 0.0, 0, 0, Vector2(0.466667, 0.666667), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+metadata/_snap_count = 15
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btdun"]
 atlas = ExtResource("12_k14ad")
@@ -259,6 +265,27 @@ platform_on_leave = 2
 script = ExtResource("1_dm3mn")
 player_input = ExtResource("2_o7nxp")
 
+[node name="States" parent="." instance=ExtResource("1_c3vuo")]
+
+[node name="Dash" parent="States" instance=ExtResource("8_01vqm")]
+
+[node name="Fall" parent="States" instance=ExtResource("7_dp6gk")]
+
+[node name="Hurt" parent="States" instance=ExtResource("11_6u7s6")]
+
+[node name="Idle" parent="States" instance=ExtResource("4_2y6dn")]
+
+[node name="Jump" parent="States" instance=ExtResource("6_6x4dq")]
+
+[node name="Kick" parent="States" instance=ExtResource("9_fk70v")]
+curve = SubResource("Curve_1x5sn")
+
+[node name="Punch" parent="States" instance=ExtResource("8_55v5u")]
+
+[node name="Walk" parent="States" instance=ExtResource("5_2ceqa")]
+
+[node name="Disintegrate" parent="States" instance=ExtResource("13_bbhvm")]
+
 [node name="StateLabel" type="Label" parent="."]
 visible = false
 texture_filter = 1
@@ -280,7 +307,7 @@ uppercase = true
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_03cas")
-animation = &"punch"
+animation = &"fall"
 metadata/_aseprite_wizard_config_ = {
 "layer": "ze",
 "o_ex_p": "",
@@ -296,32 +323,11 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 
-[node name="States" parent="." instance=ExtResource("1_c3vuo")]
-
-[node name="Dash" parent="States" instance=ExtResource("8_01vqm")]
-
-[node name="Fall" parent="States" instance=ExtResource("7_dp6gk")]
-
-[node name="Hurt" parent="States" instance=ExtResource("11_6u7s6")]
-
-[node name="Idle" parent="States" instance=ExtResource("4_2y6dn")]
-
-[node name="Jump" parent="States" instance=ExtResource("6_6x4dq")]
-
-[node name="Kick" parent="States" instance=ExtResource("9_fk70v")]
-
-[node name="Punch" parent="States" instance=ExtResource("8_55v5u")]
-
-[node name="Walk" parent="States" instance=ExtResource("5_2ceqa")]
-
-[node name="Disintegrate" parent="States" instance=ExtResource("13_bbhvm")]
-
 [node name="BodyCollision" type="CollisionPolygon2D" parent="."]
 texture_filter = 1
 polygon = PackedVector2Array(3, 8, 0, 8, -1, 4, -1, -8, 4, -8, 4, 4)
 
 [node name="PunchArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 0
 
@@ -331,7 +337,6 @@ shape = SubResource("RectangleShape2D_4r017")
 disabled = true
 
 [node name="KickArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 0
 input_pickable = false
@@ -349,7 +354,12 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="KickTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimSprite" to="." method="_on_anim_sprite_animation_finished"]
 [connection signal="body_entered" from="PunchArea" to="." method="_on_punch_area_body_entered"]
 [connection signal="body_entered" from="KickArea" to="." method="_on_kick_area_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="KickTimer" to="." method="_on_kick_timer_timeout"]

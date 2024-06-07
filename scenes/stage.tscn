@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_hc3pc"]
 [ext_resource type="Texture2D" uid="uid://ca5ijwofu7g3b" path="res://assets/long_plat.png" id="3_pdhx4"]
-[ext_resource type="Texture2D" uid="uid://dyogoahpri788" path="res://assets/background.png" id="4_1wfbr"]
 [ext_resource type="Texture2D" uid="uid://drjgnrbdur2jw" path="res://assets/tiny_plat.png" id="4_7h6k4"]
 [ext_resource type="Texture2D" uid="uid://k2sb420ccspw" path="res://assets/timer.png" id="4_ikmgt"]
 [ext_resource type="Texture2D" uid="uid://eli4y4gysw1g" path="res://assets/sewers.png" id="4_qhvbn"]
 [ext_resource type="Texture2D" uid="uid://dqo220qggo7dv" path="res://assets/mid_plat.png" id="5_kbnpp"]
+[ext_resource type="Texture2D" uid="uid://b5atdqbleuoa2" path="res://assets/stage.png" id="7_r5blr"]
 
 [sub_resource type="Animation" id="Animation_2qixo"]
 length = 3.0
@@ -66,13 +66,13 @@ size = Vector2(88, 8)
 size = Vector2(88, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2txv"]
-size = Vector2(8, 216)
+size = Vector2(7, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk8i"]
-size = Vector2(8, 216)
+size = Vector2(7, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o01b5"]
-size = Vector2(88, 14)
+size = Vector2(88, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8j511"]
 atlas = ExtResource("5_kbnpp")
@@ -437,38 +437,38 @@ shape = SubResource("RectangleShape2D_r6qtg")
 position = Vector2(1, 0)
 
 [node name="LongPlatLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(44, 42)
+position = Vector2(43, 47)
 shape = SubResource("RectangleShape2D_1sl54")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="LongPlatRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(212, 42)
+position = Vector2(211, 47)
 shape = SubResource("RectangleShape2D_1sl54")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="MidPlatLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(22, 72)
+position = Vector2(21, 77)
 shape = SubResource("RectangleShape2D_wlmad")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="MidPlatRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(234, 72)
+position = Vector2(233, 77)
 shape = SubResource("RectangleShape2D_wlmad")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="TinyPlatLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(11, 102)
+position = Vector2(10, 107)
 shape = SubResource("RectangleShape2D_hlyui")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="TinyPlatRightCollision" type="CollisionShape2D" parent="StageBody"]
 texture_filter = 1
-position = Vector2(245, 102)
+position = Vector2(244, 107)
 shape = SubResource("RectangleShape2D_nnykr")
 one_way_collision = true
 one_way_collision_margin = 2.0
@@ -484,26 +484,28 @@ shape = SubResource("RectangleShape2D_hnv5k")
 disabled = true
 
 [node name="WallLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(-1, 36)
+position = Vector2(-1.5, 36)
 shape = SubResource("RectangleShape2D_x2txv")
 
 [node name="WallRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(255, 36)
+position = Vector2(255.5, 36)
 shape = SubResource("RectangleShape2D_suk8i")
 
 [node name="MainFloorLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(44, 137)
+unique_name_in_owner = true
+position = Vector2(43, 140.5)
 shape = SubResource("RectangleShape2D_o01b5")
 
 [node name="MainFloorRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(212, 137)
+unique_name_in_owner = true
+position = Vector2(211, 140)
 shape = SubResource("RectangleShape2D_o01b5")
 
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="LongPlatLeftSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(44, 41)
+position = Vector2(44, 46)
 texture = ExtResource("3_pdhx4")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -524,7 +526,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="LongPlatRightSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(212, 41)
+position = Vector2(212, 46)
 texture = ExtResource("3_pdhx4")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -545,7 +547,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="MidPlatLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(-106, -10)
+position = Vector2(-106, -5)
 sprite_frames = SubResource("SpriteFrames_a1xl6")
 autoplay = "default"
 centered = false
@@ -566,7 +568,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="MidPlatRightSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(106, -10)
+position = Vector2(106, -5)
 sprite_frames = SubResource("SpriteFrames_2ier2")
 autoplay = "default"
 centered = false
@@ -587,7 +589,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="TinyPlatLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(-117, 12)
+position = Vector2(-117, 17)
 sprite_frames = SubResource("SpriteFrames_0hrsi")
 autoplay = "default"
 centered = false
@@ -608,7 +610,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="TinyPlatRightSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(117, 12)
+position = Vector2(117, 17)
 sprite_frames = SubResource("SpriteFrames_kues5")
 autoplay = "default"
 centered = false
@@ -629,7 +631,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="SewersSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(128, 72)
+position = Vector2(128, 74)
 sprite_frames = SubResource("SpriteFrames_q01q7")
 animation = &"draining"
 autoplay = "draining"
@@ -650,19 +652,19 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="BackgroundSprite" type="Sprite2D" parent="Sprites"]
 z_index = -1
 texture_filter = 1
-texture = ExtResource("4_1wfbr")
+texture = ExtResource("7_r5blr")
 centered = false
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
 "layer": "",
 "o_ex_p": "",
-"o_folder": "",
+"o_folder": "res://assets",
 "o_name": "",
 "only_visible": true,
 "player": "",
 "slice": "",
-"source": "res://aseprite/background.aseprite"
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
@@ -671,7 +673,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="Platform" parent="." instance=ExtResource("1_2shnp")]
-position = Vector2(128, 40)
+position = Vector2(128, 47)
 
 [node name="Players" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

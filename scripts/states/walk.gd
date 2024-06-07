@@ -7,15 +7,13 @@ func update(delta):
 	
 	if player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 		return states.IDLE
-	#if player.velocity.y < Vector2.ZERO.y: # ?
-		#return states.JUMP
 	elif Input.is_action_just_pressed(player.player_input.jump):
 		return states.JUMP
 	elif player.velocity.y > 0:
 		return states.FALL
 	elif Input.is_action_just_pressed(player.player_input.punch):
 		return states.PUNCH
-	elif Input.is_action_just_pressed(player.player_input.kick):
+	elif Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
 		return states.KICK
 	elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
 		return states.DASH

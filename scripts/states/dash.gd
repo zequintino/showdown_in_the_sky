@@ -14,6 +14,7 @@ func update(delta):
 	else:
 		player.velocity.x = Vector2.ZERO.x
 		player.gravity(delta)
+		player.dash_timer.start()
 		
 		curve_time = 0.0
 		
@@ -23,7 +24,9 @@ func update(delta):
 				# Double jump
 				# "jump": return states.JUMP
 				"punch": return states.PUNCH
-				"kick": return states.KICK
+				"kick":
+					if player.kick_timer.is_stopped():
+						return states.KICK
 		elif player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 			return states.IDLE
 		elif player.velocity.y > Vector2.ZERO.y:
