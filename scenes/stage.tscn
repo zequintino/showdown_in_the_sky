@@ -451,25 +451,25 @@ shape = SubResource("RectangleShape2D_r6qtg")
 position = Vector2(1, 0)
 
 [node name="LongPlatLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(43, 49)
+position = Vector2(41, 49)
 shape = SubResource("RectangleShape2D_1sl54")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="LongPlatRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(211, 49)
+position = Vector2(213, 49)
 shape = SubResource("RectangleShape2D_1sl54")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="MidPlatLeftCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(21, 79)
+position = Vector2(20, 79)
 shape = SubResource("RectangleShape2D_wlmad")
 one_way_collision = true
 one_way_collision_margin = 2.0
 
 [node name="MidPlatRightCollision" type="CollisionShape2D" parent="StageBody"]
-position = Vector2(233, 79)
+position = Vector2(234, 79)
 shape = SubResource("RectangleShape2D_wlmad")
 one_way_collision = true
 one_way_collision_margin = 2.0
@@ -519,7 +519,7 @@ shape = SubResource("RectangleShape2D_o01b5")
 
 [node name="LongPlatLeftSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(44, 48)
+position = Vector2(42, 48)
 texture = ExtResource("3_pdhx4")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -540,7 +540,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="LongPlatRightSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(212, 48)
+position = Vector2(214, 48)
 texture = ExtResource("3_pdhx4")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -561,7 +561,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="MidPlatLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(-106, -3)
+position = Vector2(-107, -3)
 sprite_frames = SubResource("SpriteFrames_a1xl6")
 autoplay = "default"
 centered = false
@@ -582,7 +582,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="MidPlatRightSprite" type="AnimatedSprite2D" parent="Sprites"]
 texture_filter = 1
-position = Vector2(106, -3)
+position = Vector2(107, -3)
 sprite_frames = SubResource("SpriteFrames_2ier2")
 autoplay = "default"
 centered = false
