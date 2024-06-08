@@ -26,7 +26,9 @@ func update(delta):
 					if player.dash_timer.is_stopped():
 						return states.DASH
 				"punch": return states.PUNCH
-				"kick": return states.KICK
+				"kick": 
+					if player.kick_timer.is_stopped():
+						return states.KICK
 		elif player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 			return states.IDLE
 		elif player.direction_x != Vector2.ZERO.x:

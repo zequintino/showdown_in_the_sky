@@ -257,7 +257,7 @@ size = Vector2(7, 1)
 size = Vector2(9, 1)
 
 [node name="Ze" type="CharacterBody2D"]
-z_index = 1
+z_index = 2
 texture_filter = 1
 collision_layer = 0
 floor_constant_speed = true

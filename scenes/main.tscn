@@ -8,16 +8,16 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjty5"]
 shader = ExtResource("3_6k2hf")
 shader_parameter/angle = 0.0
-shader_parameter/position = 0.0
-shader_parameter/spread = 1.0
-shader_parameter/cutoff = -0.435
-shader_parameter/falloff = 1.0
-shader_parameter/edge_fade = 1.0
-shader_parameter/speed = -2.0
-shader_parameter/ray1_density = 12.0
-shader_parameter/ray2_density = 35.0
-shader_parameter/ray2_intensity = 0.2
-shader_parameter/color = Color(1, 1, 1, 0.364706)
+shader_parameter/position = 0.01
+shader_parameter/spread = 0.0
+shader_parameter/cutoff = 0.12
+shader_parameter/falloff = 0.204
+shader_parameter/edge_fade = 0.628
+shader_parameter/speed = 1.79
+shader_parameter/ray1_density = 10.35
+shader_parameter/ray2_density = 21.485
+shader_parameter/ray2_intensity = 0.305
+shader_parameter/color = Color(0.950029, 0.650824, 0.647229, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 69.0
 
@@ -47,7 +47,7 @@ shader_parameter/vignette_opacity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sl0la"]
 shader = ExtResource("4_5118s")
-shader_parameter/scanline_count = 50.0
+shader_parameter/scanline_count = 1800.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2nhvg"]
 shader = ExtResource("4_5118s")
@@ -72,8 +72,9 @@ anchor_mode = 0
 [node name="GodRaysRect" type="ColorRect" parent="."]
 z_index = 3
 material = SubResource("ShaderMaterial_bjty5")
-offset_left = 88.0
-offset_right = 168.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 256.0
 offset_bottom = 144.0
 
 [node name="CRTRect" type="ColorRect" parent="."]
@@ -94,6 +95,5 @@ offset_bottom = 144.0
 visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_2nhvg")
-offset_left = 88.0
-offset_right = 168.0
+offset_right = 256.0
 offset_bottom = 144.0

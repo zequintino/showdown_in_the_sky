@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b57qrjbbpo6rk"]
+[gd_scene load_steps=81 format=3 uid="uid://b57qrjbbpo6rk"]
 
 [ext_resource type="PackedScene" uid="uid://c40k1762ncvl8" path="res://scenes/platform.tscn" id="1_2shnp"]
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_hc3pc"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://k2sb420ccspw" path="res://assets/timer.png" id="4_ikmgt"]
 [ext_resource type="Texture2D" uid="uid://eli4y4gysw1g" path="res://assets/sewers.png" id="4_qhvbn"]
 [ext_resource type="Texture2D" uid="uid://dqo220qggo7dv" path="res://assets/mid_plat.png" id="5_kbnpp"]
+[ext_resource type="Texture2D" uid="uid://houmsmu3bcq3" path="res://assets/fan.png" id="6_d3kds"]
 [ext_resource type="Texture2D" uid="uid://b5atdqbleuoa2" path="res://assets/stage.png" id="7_r5blr"]
+[ext_resource type="Texture2D" uid="uid://dyogoahpri788" path="res://assets/background.png" id="8_wi4ex"]
+[ext_resource type="Texture2D" uid="uid://dmlgmad26ei74" path="res://assets/cloud_1.png" id="9_idxuj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vw144"]
 size = Vector2(10, 4)
@@ -333,6 +336,28 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbwee"]
+atlas = ExtResource("6_d3kds")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lgpw"]
+atlas = ExtResource("6_d3kds")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df0un"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbwee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lgpw")
+}],
+"loop": true,
+"name": &"fan",
+"speed": 8.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5t34b"]
 atlas = ExtResource("4_qhvbn")
 region = Rect2(0, 0, 256, 144)
@@ -383,6 +408,81 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmbyq"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(0, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql58u"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(256, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywteh"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(512, 0, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhcjn"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(0, 144, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmfln"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(256, 144, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04krs"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(512, 144, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1wc"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(0, 288, 256, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p003l"]
+atlas = ExtResource("9_idxuj")
+region = Rect2(256, 288, 256, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_015gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmbyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql58u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywteh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhcjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmfln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04krs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p003l")
+}],
+"loop": true,
+"name": &"cloude",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmbyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql58u")
+}],
+"loop": true,
+"name": &"fan",
+"speed": 10.0
+}]
+
 [node name="Stage" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_hc3pc")
@@ -399,6 +499,7 @@ texture_progress = SubResource("PlaceholderTexture2D_vw144")
 tint_progress = Color(2.64719e-07, 0.392602, 0.392834, 1)
 
 [node name="TimerSprite" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(117, 3)
 scale = Vector2(2, 2)
@@ -518,6 +619,7 @@ shape = SubResource("RectangleShape2D_o01b5")
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="LongPlatLeftSprite" type="Sprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(42, 48)
 texture = ExtResource("3_pdhx4")
@@ -539,6 +641,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="LongPlatRightSprite" type="Sprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(214, 48)
 texture = ExtResource("3_pdhx4")
@@ -560,6 +663,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="MidPlatLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-107, -3)
 sprite_frames = SubResource("SpriteFrames_a1xl6")
@@ -581,6 +685,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="MidPlatRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(107, -3)
 sprite_frames = SubResource("SpriteFrames_2ier2")
@@ -602,6 +707,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="TinyPlatLeftSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(-117, 19)
 sprite_frames = SubResource("SpriteFrames_0hrsi")
@@ -623,6 +729,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="TinyPlatRightSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 1
 texture_filter = 1
 position = Vector2(117, 19)
 sprite_frames = SubResource("SpriteFrames_kues5")
@@ -643,7 +750,32 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
+[node name="FanSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 1
+texture_filter = 1
+position = Vector2(128, 72)
+sprite_frames = SubResource("SpriteFrames_df0un")
+animation = &"fan"
+autoplay = "fan"
+frame = 1
+frame_progress = 0.317242
+metadata/_aseprite_wizard_config_ = {
+"layer": "fan",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
+
 [node name="SewersSprite" type="AnimatedSprite2D" parent="Sprites"]
+z_index = 2
 texture_filter = 1
 position = Vector2(128, 74)
 sprite_frames = SubResource("SpriteFrames_q01q7")
@@ -663,11 +795,10 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="BackgroundSprite" type="Sprite2D" parent="Sprites"]
-z_index = -1
+[node name="StageSprite" type="Sprite2D" parent="Sprites"]
 texture_filter = 1
+position = Vector2(128, 72)
 texture = ExtResource("7_r5blr")
-centered = false
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
@@ -682,8 +813,52 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
+"output_section": true
+}
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Sprites"]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("8_wi4ex")
+centered = false
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "background",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
 "output_section": true,
 "slice_section": false
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
+z_index = -1
+texture_filter = 1
+position = Vector2(128, 72)
+sprite_frames = SubResource("SpriteFrames_015gq")
+animation = &"cloude"
+autoplay = "cloude"
+frame_progress = 0.118233
+metadata/_aseprite_wizard_config_ = {
+"layer": "cloud_1",
+"o_ex_p": "",
+"o_folder": "res://assets",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
 }
 
 [node name="Platform" parent="." instance=ExtResource("1_2shnp")]

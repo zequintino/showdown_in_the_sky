@@ -33,6 +33,7 @@ size = Vector2(80, 4)
 polygon = PackedVector2Array(-39, -3, -39, 0.999996, 41, 0.999996, 41, -3)
 
 [node name="Platform" type="Path2D"]
+z_index = 2
 curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
 
@@ -132,6 +133,7 @@ position = Vector2(8.17776e-05, 27)
 shape = SubResource("RectangleShape2D_ldp7e")
 
 [node name="UfoLight" type="PointLight2D" parent="PathFollow"]
+visible = false
 position = Vector2(25.9737, 0.119867)
 rotation = 1.5708
 scale = Vector2(1.11111, 3.11403)

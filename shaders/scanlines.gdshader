@@ -14,7 +14,7 @@ void fragment()
 		
 	//If you dont want scanlines you can just delete this part
 	float s = sin(SCREEN_UV.y * scanline_count * PI * 2.0);
-	s = (s * 0.2 + 0.2) * 0.5 + 0.9; // last value is scanline brightness
+	s = (s * 0.2 + 0.2) * 0.5 + 1.1; // last value is scanline brightness. Default: 0.9
 	vec4 scan_line = vec4(vec3(pow(s, 0.25)), 1.0);
 	
 	
