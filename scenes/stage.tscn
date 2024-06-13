@@ -839,10 +839,10 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
+[node name="CloudSprite" type="AnimatedSprite2D" parent="Sprites"]
 z_index = -1
 texture_filter = 1
-position = Vector2(128, 72)
+position = Vector2(138, 86)
 sprite_frames = SubResource("SpriteFrames_015gq")
 animation = &"cloude"
 autoplay = "cloude"

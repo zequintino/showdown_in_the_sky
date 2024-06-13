@@ -133,7 +133,6 @@ position = Vector2(8.17776e-05, 27)
 shape = SubResource("RectangleShape2D_ldp7e")
 
 [node name="UfoLight" type="PointLight2D" parent="PathFollow"]
-visible = false
 position = Vector2(25.9737, 0.119867)
 rotation = 1.5708
 scale = Vector2(1.11111, 3.11403)
@@ -145,7 +144,6 @@ texture = SubResource("PlaceholderTexture2D_e1oe4")
 texture_scale = 18.0
 
 [node name="PlatformLight" type="PointLight2D" parent="PathFollow"]
-visible = false
 position = Vector2(-3, -1.086e-05)
 scale = Vector2(0.500025, 19.8899)
 energy = 16.0

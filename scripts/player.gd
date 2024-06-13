@@ -4,34 +4,52 @@ extends CharacterBody2D
 
 ## Character movement speed. Default: 95.0
 @export_range(0.0, 100.0) var move_speed = 70.0
+
 ## Character jump speed. Default: -230.0
 @export_range(-500.0, 0.0) var jump_speed = -145.0
+
 ## Character kick speed. Default: 130.0
 @export_range(0.0, 1000.0) var kick_speed = 130.0
+
 ## Character dash speed. Default: 150.0
 @export_range(0.0, 1000.0) var dash_speed = 100.0
+
 ## Movement top speed offset. Default: 0.1
 @export_range(0.0 , 1.0) var accel = 6.0
+
 ## Movement decel. Default: 0.12
 @export_range(0.0, 1.0) var decel = 5.0
+
 ## Action accel. Default: -80.0
 @export_range(0.0, 1.0) var action_accel = -100.0
+
 # ## Action decel. Default:
 # @export_range(0.0, 1.0) var action_decel = -5.0
+
 ## Applied gravity. Default: 1000.0
 @export_range(0.0, 1000.0) var gravity_value = 700.0
+
 ## Impact force after taking a punch. Default: 150
 @export_range(0.0, 1000.0) var punch_impact = 120.0
+
 ## Bounce force after landing a punch. Default: 40.0
 @export_range(0.0, 200.0) var punch_bounce = 110.0
-## Impact force after getting kickicked . Default: 100.0
+
+## Impact force after getting kicked . Default: 100.0
 @export_range(0.0, 200.0) var kick_impact = 150.0
-## Bounce force after landing a kick. Default: 100.0
-@export_range(0.0, 200.0) var kick_bounce = 100.0
+
 ## Upforce force after getting kicked. Default: 128.0
 @export_range(0.0, 200.0) var kick_upforce = 128.0
+
+## Impact force after getting slammed . Default: 100.0
+@export_range(0.0, 200.0) var slam_impact = 300.0
+
+## Upforce force after getting slammed. Default: 128.0
+@export_range(0.0, 200.0) var slam_upforce = 200.0
+
 ## Double jump speed. Default: 30.0
-@export_range(0.0, 50.0) var double_jump_speed = -10.0
+# @export_range(0.0, 50.0) var double_jump_speed = -10.0
+
 ## Player input resource file
 @export var player_input: Resource = null
 
@@ -200,6 +218,18 @@ func take_kick(direction):
 	velocity.y = move_toward(-kick_upforce, Vector2.RIGHT.x * move_speed, decel)
 
 
+func take_slam(direction):
+	is_hurt = true
+	disintegrating = false
+	
+	if direction == "right":
+		velocity.x = move_toward(slam_impact, Vector2.RIGHT.x * move_speed, decel)
+	else:
+		velocity.x = move_toward(-slam_impact, Vector2.LEFT.x * move_speed, decel)
+	
+	velocity.y = move_toward(-slam_upforce, Vector2.RIGHT.x * move_speed, decel)
+
+
 func _on_punch_area_body_entered(body):
 	if body.has_method("take_punch"):
 		punching = false
@@ -222,6 +252,14 @@ func _on_kick_area_body_entered(body):
 			body.take_kick("left")
 
 
+func _on_slam_area_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_index):
+	if body.has_method("take_kick"):
+		if local_shape_index == 1:
+			body.take_slam("right")
+		elif local_shape_index == 0:
+			body.take_slam("left")
+
+
 func _on_anim_sprite_animation_finished():
 	if anim_sprite.animation == "punch" and punching:
 		punching = false
@@ -237,9 +275,3 @@ func _on_anim_sprite_animation_finished():
 		slamming = false
 
 
-func _on_slam_area_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_index):
-	if body.has_method("take_kick"):
-		if local_shape_index == 1:
-			body.take_kick("right")
-		elif local_shape_index == 0:
-			body.take_kick("left")
