@@ -39,11 +39,14 @@ extends CharacterBody2D
 @onready var state_label = $StateLabel
 @onready var punch_coll = $PunchArea/PunchCollision
 @onready var kick_coll = $KickArea/KickCollision
+@onready var slam_left_coll = $SlamArea/SlamLeftCollision
+@onready var slam_right_coll = $SlamArea/SlamRightCollision
 @onready var body_coll = $BodyCollision
 @onready var anim_sprite = $AnimSprite
 @onready var buffer_input_timer = $BufferInputTimer
 @onready var dash_timer = $DashTimer
 @onready var kick_timer = $KickTimer
+@onready var slam_timer = $SlamTimer
 @onready var dash_cooldown = null
 
 var current_state = null
@@ -59,6 +62,7 @@ var kick_coll_pos = -1.5
 var dashing = false
 var punching = false
 var kicking = false
+var slamming = false
 var is_hurt = false
 var double_jumping = false
 var disintegrating = false
@@ -97,6 +101,8 @@ func _physics_process(delta):
 	change_state(current_state.update(delta))
 	state_label.text = str(current_state.get_name())
 	move_and_slide()
+	position.x = clamp(position.x, 0, 256)
+	position.y = clamp(position.y, 0, 144)
 
 
 func gravity(delta):
@@ -165,7 +171,6 @@ func set_horizontal_direction():
 			flip_character("right")
 
 
-
 func punch_self_knockback(direction):
 	if direction == "right":
 		velocity.x = move_toward(-punch_bounce, Vector2.LEFT.x * move_speed, decel)
@@ -181,7 +186,6 @@ func take_punch(direction):
 		velocity.x = move_toward(punch_impact, Vector2.RIGHT.x * move_speed, decel)
 	else:
 		velocity.x = move_toward(-punch_impact, Vector2.LEFT.x * move_speed, decel)
-
 
 
 func take_kick(direction):
@@ -229,3 +233,13 @@ func _on_anim_sprite_animation_finished():
 		is_hurt = false
 	elif anim_sprite.animation == "disintegrate":
 		disintegrated = true
+	elif anim_sprite.animation == "slam":
+		slamming = false
+
+
+func _on_slam_area_body_shape_entered(_body_rid, body, _body_shape_index, local_shape_index):
+	if body.has_method("take_kick"):
+		if local_shape_index == 1:
+			body.take_kick("right")
+		elif local_shape_index == 0:
+			body.take_kick("left")

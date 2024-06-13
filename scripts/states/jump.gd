@@ -12,16 +12,17 @@ var jumping = false
 func handle_input(event):
 	match event.get_class():
 		"InputEventKey":
+			curve_time = 0.0
+			jumping = false
+			
 			if Input.is_action_just_pressed(player.player_input.punch):
-				curve_time = 0.0
 				return states.PUNCH
 			elif Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
-				curve_time = 0.0
 				return states.KICK
 			elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
-				jumping = false
-				curve_time = 0.0
 				return states.DASH
+			elif Input.is_action_just_pressed(player.player_input.slam) and player.slam_timer.is_stopped():	
+				return states.SLAM
 
 
 func update(delta):

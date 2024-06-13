@@ -9,6 +9,7 @@ extends Node
 @onready var DASH = $Dash
 @onready var PUNCH = $Punch
 @onready var KICK = $Kick
+@onready var SLAM = $Slam
 @onready var HURT = $Hurt
 @onready var DISINTEGRATE = $Disintegrate
 # input buffer handler

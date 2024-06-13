@@ -25,6 +25,8 @@ func update(delta):
 			return states.KICK
 	elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
 		return states.DASH
+	elif Input.is_action_just_pressed(player.player_input.slam) and player.slam_timer.is_stopped():
+		return states.SLAM
 	elif player.is_hurt:
 		return states.HURT
 	else:

@@ -22,19 +22,23 @@ func _ready():
 	var ze = ZE.instantiate()
 	var ze_punch_area = ze.get_node("PunchArea")
 	var ze_kick_area = ze.get_node("KickArea")
+	var ze_slam_area = ze.get_node("SlamArea")
 	ze.player_input = PLAYER_1_INPUT
 	ze.set_collision_layer_value(2, true)
 	ze_punch_area.set_collision_mask_value(3, true)
 	ze_kick_area.set_collision_mask_value(3, true)
+	ze_slam_area.set_collision_mask_value(3, true)
 	
 	# Init player 2
 	var raj = RAJ.instantiate()
 	var raj_punch_area = raj.get_node("PunchArea")
 	var raj_kick_area = raj.get_node("KickArea")
+	var raj_slam_area = raj.get_node("SlamArea")
 	raj.player_input = PLAYER_2_INPUT
 	raj.set_collision_layer_value(3, true)
 	raj_punch_area.set_collision_mask_value(2, true)
 	raj_kick_area.set_collision_mask_value(2, true)
+	raj_slam_area.set_collision_mask_value(2, true)
 
 	# Add players to the stage
 	players.add_child(ze, true)

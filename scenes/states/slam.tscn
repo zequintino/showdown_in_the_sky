@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg1r7qqkrw58"]
+
+[ext_resource type="Script" path="res://scripts/states/slam.gd" id="1_ge6pg"]
+
+[node name="Slam" type="Node"]
+script = ExtResource("1_ge6pg")
