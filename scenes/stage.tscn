@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dmlgmad26ei74" path="res://assets/cloud_1.png" id="9_idxuj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vw144"]
-size = Vector2(10, 4)
+size = Vector2(15, 5)
 
 [sub_resource type="Animation" id="Animation_2qixo"]
 length = 3.0
@@ -469,7 +469,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"cloude",
-"speed": 2.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -488,10 +488,10 @@ texture_filter = 1
 script = ExtResource("1_hc3pc")
 
 [node name="DashTextureProgress" type="TextureProgressBar" parent="."]
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 63.0
-offset_bottom = 8.0
+offset_left = 67.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 21.0
 max_value = 520.0
 rounded = true
 allow_greater = true
@@ -828,7 +828,7 @@ metadata/_aseprite_wizard_config_ = {
 "o_ex_p": "",
 "o_folder": "res://assets",
 "o_name": "",
-"only_visible": true,
+"only_visible": false,
 "player": "",
 "slice": "",
 "source": "C:/Users/zepqu/Documents/Milees/aseprite_files/stage.ase"
@@ -846,7 +846,8 @@ position = Vector2(138, 86)
 sprite_frames = SubResource("SpriteFrames_015gq")
 animation = &"cloude"
 autoplay = "cloude"
-frame_progress = 0.118233
+frame = 2
+frame_progress = 0.580395
 metadata/_aseprite_wizard_config_ = {
 "layer": "cloud_1",
 "o_ex_p": "",
