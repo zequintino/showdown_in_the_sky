@@ -100,9 +100,9 @@ func _physics_process(delta):
 	queue_input()
 	change_state(current_state.update(delta))
 	state_label.text = str(current_state.get_name())
+	position.round()
+	# print(position)
 	move_and_slide()
-	position.x = clamp(position.x, 0, 256)
-	position.y = clamp(position.y, 0, 144)
 
 
 func gravity(delta):
