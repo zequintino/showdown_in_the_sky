@@ -7,7 +7,6 @@ func update(delta):
 	
 	if not player.buffer_input_timer.is_stopped() and player.is_on_floor():
 		player.buffer_input_timer.stop()
-		print("wow")
 		match player.queued_input:
 			"jump": 
 				# if player.double_jumping:
@@ -19,8 +18,8 @@ func update(delta):
 	# elif Input.is_action_just_pressed(player.player_input.jump) and not player.double_jumping:
 	# 	player.double_jumping = true
 	# 	return states.JUMP
-	elif Input.is_action_just_pressed(player.player_input.punch):
-		return states.PUNCH
+	# elif Input.is_action_just_pressed(player.player_input.punch):
+	# 	return states.PUNCH
 	elif Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
 			return states.KICK
 	elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():

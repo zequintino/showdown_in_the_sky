@@ -7,7 +7,7 @@ extends Node
 @onready var JUMP = $Jump
 @onready var FALL = $Fall
 @onready var DASH = $Dash
-@onready var PUNCH = $Punch
+# @onready var PUNCH = $Punch
 @onready var KICK = $Kick
 @onready var SLAM = $Slam
 @onready var HURT = $Hurt

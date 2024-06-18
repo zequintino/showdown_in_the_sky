@@ -23,7 +23,7 @@ func update(delta):
 			match player.queued_input:
 				# Double jump
 				# "jump": return states.JUMP
-				"punch": return states.PUNCH
+				# "punch": return states.PUNCH
 				"kick":
 					if player.kick_timer.is_stopped():
 						return states.KICK

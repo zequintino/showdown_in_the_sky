@@ -15,14 +15,16 @@ func handle_input(event):
 			curve_time = 0.0
 			jumping = false
 			
-			if Input.is_action_just_pressed(player.player_input.punch):
-				return states.PUNCH
-			elif Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
+			# if Input.is_action_just_pressed(player.player_input.punch):
+			# 	return states.PUNCH
+			if Input.is_action_just_pressed(player.player_input.kick) and player.kick_timer.is_stopped():
 				return states.KICK
 			elif Input.is_action_just_pressed(player.player_input.dash) and player.dash_timer.is_stopped():
 				return states.DASH
 			elif Input.is_action_just_pressed(player.player_input.slam) and player.slam_timer.is_stopped():	
 				return states.SLAM
+			else:
+				return null
 
 
 func update(delta):
