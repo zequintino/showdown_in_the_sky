@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wwm5nuvajn1g"
-path="res://.godot/imported/center plat.png-74a02d1cbf60e9297a484ab20bae4833.ctex"
+uid="uid://ca5ijwofu7g3b"
+path="res://.godot/imported/long_plat.png-55b7bd9a43532ef4df29571cd93dbec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/center plat.png"
-dest_files=["res://.godot/imported/center plat.png-74a02d1cbf60e9297a484ab20bae4833.ctex"]
+source_file="res://assets/long_plat.png"
+dest_files=["res://.godot/imported/long_plat.png-55b7bd9a43532ef4df29571cd93dbec1.ctex"]
 
 [params]
 

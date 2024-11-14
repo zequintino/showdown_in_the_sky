@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c40k1762ncvl8"]
 
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_j2q25"]
-[ext_resource type="Texture2D" uid="uid://b2t2mxyd4i06v" path="res://scenes/center_plat.png" id="2_spyyi"]
+[ext_resource type="Texture2D" uid="uid://b2t2mxyd4i06v" path="res://assets/center_plat.png" id="2_spyyi"]
 
 [sub_resource type="Curve2D" id="Curve2D_fbq2g"]
 bake_interval = 1.0
@@ -20,7 +20,7 @@ width = 80
 use_hdr = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4hx1"]
-size = Vector2(80, 57)
+size = Vector2(78, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldp7e"]
 size = Vector2(80, 4)
@@ -33,6 +33,7 @@ size = Vector2(80, 4)
 polygon = PackedVector2Array(-39, -3, -39, 0.999996, 41, 0.999996, 41, -3)
 
 [node name="Platform" type="Path2D"]
+z_index = 2
 curve = SubResource("Curve2D_fbq2g")
 script = ExtResource("1_j2q25")
 
@@ -115,7 +116,7 @@ tint_progress = Color(0.752941, 0.0705882, 1, 0.627451)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreAreaCollision" type="CollisionShape2D" parent="PathFollow/ScoreArea"]
-position = Vector2(8.28505e-05, -8.5)
+position = Vector2(8.28505e-05, -9)
 shape = SubResource("RectangleShape2D_b4hx1")
 
 [node name="PlatformStatic" type="AnimatableBody2D" parent="PathFollow"]
@@ -123,7 +124,7 @@ texture_filter = 1
 position = Vector2(23, 1.00536e-06)
 rotation = 1.5708
 collision_mask = 2
-constant_linear_velocity = Vector2(0, 1)
+constant_linear_velocity = Vector2(0, 10)
 sync_to_physics = false
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="PathFollow/PlatformStatic"]
@@ -135,7 +136,7 @@ shape = SubResource("RectangleShape2D_ldp7e")
 position = Vector2(25.9737, 0.119867)
 rotation = 1.5708
 scale = Vector2(1.11111, 3.11403)
-color = Color(0.115077, 0.0161363, 0.1506, 0.392157)
+color = Color(0.129412, 0.0196078, 0.133333, 0.372549)
 energy = 0.0
 shadow_enabled = true
 shadow_filter_smooth = 64.0
@@ -143,7 +144,6 @@ texture = SubResource("PlaceholderTexture2D_e1oe4")
 texture_scale = 18.0
 
 [node name="PlatformLight" type="PointLight2D" parent="PathFollow"]
-visible = false
 position = Vector2(-3, -1.086e-05)
 scale = Vector2(0.500025, 19.8899)
 energy = 16.0

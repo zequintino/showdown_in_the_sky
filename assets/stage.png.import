@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c60lpxb3ergh2"
-path="res://.godot/imported/side_plat.png-8e7253634db22c9f8ccd99306c13ea45.ctex"
+uid="uid://b5atdqbleuoa2"
+path="res://.godot/imported/stage.png-bbe92d288bd59e6cea56e632b5294215.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/side_plat.png"
-dest_files=["res://.godot/imported/side_plat.png-8e7253634db22c9f8ccd99306c13ea45.ctex"]
+source_file="res://assets/stage.png"
+dest_files=["res://.godot/imported/stage.png-bbe92d288bd59e6cea56e632b5294215.ctex"]
 
 [params]
 

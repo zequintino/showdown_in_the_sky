@@ -1,25 +1,40 @@
 extends State
 
 
+@export var curve : Curve
+
+## Speed of the kick curve. Default: 400
+@export var curve_factor = 300
+var curve_time = 0.0
+
+
 func update(delta):
-	if not player.kicking:
-		player.handle_move_input()
+	if player.kicking:
+		kick()
+	else:
+		player.kick_coll.disabled = true
+		player.velocity.x = Vector2.ZERO.x
 		player.gravity(delta)
+		player.kick_timer.start()
 		
-		#if player.is_on_floor():
-			#if player.anim_sprite.flip_h:
-				#player.velocity.x = 50
-			#else:
-				#player.velocity.x = -50
-		
-		if player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
+		curve_time = 0.0
+
+		if not player.buffer_input_timer.is_stopped():
+			player.buffer_input_timer.stop()
+			match player.queued_input:
+				"jump": return states.JUMP
+				"dash": 
+					if player.dash_timer.is_stopped():
+						return states.DASH
+				# "punch": return states.PUNCH
+		elif player.is_on_floor() and player.direction_x == Vector2.ZERO.x:
 			return states.IDLE
 		elif player.velocity.y > Vector2.ZERO.y:
 			return states.FALL
 		elif player.direction_x != Vector2.ZERO.x:
 			return states.WALK
-	else:
-		return null
+		else:
+			return null
 
 
 func enter_state():
@@ -28,8 +43,16 @@ func enter_state():
 	player.velocity.y = Vector2.ZERO.y
 	player.kick_coll.disabled = false
 	
-	if player.anim_sprite.flip_h:
-		player.velocity.x = lerp(200.0, Vector2.RIGHT.x * player.speed, 0.1)
-	else:
-		player.velocity.x = lerp(-200.0, Vector2.LEFT.x * player.speed, 0.1)
+		
 
+
+func kick():
+	curve_time += 0.06 
+
+	if player.anim_sprite.flip_h: # Facing right
+		player.velocity.x = curve.sample(curve_time) * curve_factor
+	else: # Facing left
+		player.velocity.x = curve.sample(curve_time) * -curve_factor
+
+	curve_time = clamp(curve_time, 0, 1)
+	print("curve_time: ", curve_time)

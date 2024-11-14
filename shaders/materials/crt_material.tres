@@ -4,9 +4,9 @@
 
 [resource]
 shader = ExtResource("1")
-shader_parameter/screen_base_size = 256.0
-shader_parameter/sharpness_h = 1.0
-shader_parameter/sharpness_v = 1.0
+shader_parameter/screen_base_size = 200.0
+shader_parameter/sharpness_h = 0.0
+shader_parameter/sharpness_v = 0.0
 shader_parameter/mask_strength = 0.0
 shader_parameter/mask_dot_width = 1.0
 shader_parameter/mask_dot_height = 1.0

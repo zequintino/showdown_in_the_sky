@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4vq2tgkl0ujl"]
+[gd_scene load_steps=3 format=3 uid="uid://c4vq2tgkl0ujl"]
 
 [ext_resource type="Script" path="res://scripts/states/jump.gd" id="1_bo2jd"]
 
+[sub_resource type="Curve" id="Curve_btrpu"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 0.2), -2.48137, -2.48137, 0, 0, Vector2(1, 0), 0.0, 1.4, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
 [node name="Jump" type="Node"]
 script = ExtResource("1_bo2jd")
+curve = SubResource("Curve_btrpu")

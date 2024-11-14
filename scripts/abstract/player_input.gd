@@ -8,4 +8,5 @@ extends Resource
 @export var punch = "punch_1"
 @export var kick = "kick_1"
 @export var dash = "dash_1"
+@export var slam = "slam_1"
 @export var layer = 2

@@ -11,4 +11,5 @@ jump = "jump_2"
 punch = "punch_2"
 kick = "kick_2"
 dash = "dash_2"
+slam = "slam_2"
 layer = 2
